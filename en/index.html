@@ -47,13 +47,13 @@
 <!-- Hero Slider -->
 <section class="hero-slider" id="hero">
   <div class="hero-slide active">
-    <img src="../assets/photos/photo_004.png" alt="Rack Korea installation site" />
+    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=1920&q=80" alt="Large warehouse storage system" />
   </div>
   <div class="hero-slide">
-    <img src="../assets/photos/photo_005.jpeg" alt="Mobile rack front view" />
+    <img src="https://images.unsplash.com/photo-1645736315000-6f788915923b?w=1920&q=80" alt="Logistics warehouse forklift operation" />
   </div>
   <div class="hero-slide">
-    <img src="../assets/photos/photo_003.jpeg" alt="Mobile rack 3D rendering" />
+    <img src="https://images.unsplash.com/photo-1714650601435-67a4d51a0798?w=1920&q=80" alt="Industrial rack storage system" />
   </div>
 
   <div class="hero-overlay">
@@ -157,6 +157,138 @@
   </div>
 </section>
 
+<!-- Quick Estimate Calculator -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Quick Estimate</p>
+      <h2 class="section-title">Get an Instant Price Range</h2>
+      <p class="section-sub">Enter your warehouse specs for a rough budget estimate — our team will follow up with a precise quote</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto fade-up">
+      <div class="rk-card p-8" style="box-shadow:0 8px 40px rgba(0,0,0,0.10);">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+          <!-- Warehouse Area -->
+          <div>
+            <label class="block text-sm font-bold text-navy mb-2">Warehouse Area (m²)</label>
+            <input id="est-area" type="number" min="50" max="10000" placeholder="e.g. 500"
+              class="w-full border border-slate-200 rounded-lg px-4 py-3 text-navy focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition"
+              oninput="calcEstimate()" />
+          </div>
+          <!-- Rack Levels -->
+          <div>
+            <label class="block text-sm font-bold text-navy mb-2">Number of Rack Levels</label>
+            <select id="est-levels" class="w-full border border-slate-200 rounded-lg px-4 py-3 text-navy focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition bg-white" onchange="calcEstimate()">
+              <option value="">Select levels</option>
+              <option value="3">3 levels</option>
+              <option value="4">4 levels</option>
+              <option value="5">5 levels</option>
+              <option value="6">6 levels</option>
+              <option value="7">7+ levels (high-rise)</option>
+            </select>
+          </div>
+          <!-- Environment -->
+          <div>
+            <label class="block text-sm font-bold text-navy mb-2">Storage Environment</label>
+            <select id="est-env" class="w-full border border-slate-200 rounded-lg px-4 py-3 text-navy focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition bg-white" onchange="calcEstimate()">
+              <option value="">Select environment</option>
+              <option value="ambient">Ambient (room temperature)</option>
+              <option value="cold">Cold / Frozen Storage</option>
+            </select>
+          </div>
+          <!-- Rack Type -->
+          <div>
+            <label class="block text-sm font-bold text-navy mb-2">Drive Type</label>
+            <select id="est-type" class="w-full border border-slate-200 rounded-lg px-4 py-3 text-navy focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition bg-white" onchange="calcEstimate()">
+              <option value="">Select type</option>
+              <option value="manual">Manual (No-Rail)</option>
+              <option value="electric">Electric (Rail-guided)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Result Box -->
+        <div id="est-result" class="hidden rounded-xl p-6 mb-6" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+          <p class="text-white/70 text-sm font-bold uppercase tracking-widest mb-2">Estimated Budget Range</p>
+          <p id="est-price" class="text-white font-black mb-1" style="font-size:clamp(1.6rem,4vw,2.4rem);"></p>
+          <p class="text-white/60 text-xs leading-relaxed mt-2">
+            ※ This is a rough estimate based on standard configurations. Actual pricing varies by site conditions, structural specs, and accessories.<br/>
+            A detailed quote will be provided after on-site consultation.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-3" id="est-tags"></div>
+        </div>
+
+        <div id="est-placeholder" class="rounded-xl p-6 mb-6 text-center" style="background:#f8fafc; border:2px dashed #e2e8f0;">
+          <p class="text-slate-400 text-sm">Fill in all fields above to see your estimate</p>
+        </div>
+
+        <a href="contact.html" class="btn-cta w-full block text-center" style="font-size:1rem; padding:0.85rem;">
+          Request a Detailed Quote →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cost Savings & ROI -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Cost Savings & ROI</p>
+      <h2 class="section-title">The Numbers Speak for Themselves</h2>
+      <p class="section-sub">Installing mobile racks is not a cost — it's an <strong>investment</strong></p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08); border-top:4px solid #f97316;">
+        <div class="text-5xl mb-3">🏢</div>
+        <p class="text-orange-500 font-bold text-xs uppercase tracking-widest mb-1">Rent Defence</p>
+        <p class="font-black text-navy leading-none mb-2" style="font-size:clamp(2.2rem,5vw,3rem);">-50%</p>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          <strong class="text-navy">Eliminate extra warehouse leases</strong><br/>
+          Double storage in the same footprint — no additional rental contracts needed
+        </p>
+      </div>
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08); border-top:4px solid #f97316;">
+        <div class="text-5xl mb-3">❄️</div>
+        <p class="text-orange-500 font-bold text-xs uppercase tracking-widest mb-1">Energy Savings</p>
+        <p class="font-black text-navy leading-none mb-2" style="font-size:clamp(2.2rem,5vw,3rem);">-30%</p>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          <strong class="text-navy">Cut cold storage electricity bills</strong><br/>
+          Minimising empty space reduces the cooling volume — saving thousands monthly
+        </p>
+      </div>
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08); border-top:4px solid #f97316;">
+        <div class="text-5xl mb-3">📈</div>
+        <p class="text-orange-500 font-bold text-xs uppercase tracking-widest mb-1">ROI Payback</p>
+        <p class="font-black text-navy leading-none mb-2" style="font-size:clamp(2.2rem,5vw,3rem);">3–5 yrs</p>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          <strong class="text-navy">Full investment recovery</strong><br/>
+          Cumulative savings from rent & energy deliver ROI within 3–5 years
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 fade-up">
+      <div class="flex gap-4 p-5 rounded-xl items-start" style="background:#fff7ed; border:1px solid #fed7aa;">
+        <div class="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center flex-shrink-0 text-xl font-black">💰</div>
+        <div>
+          <p class="font-black text-navy mb-1">Warehouse Rent Defence Effect</p>
+          <p class="text-slate-600 text-sm leading-relaxed">For a 1,650 m² warehouse, mobile racks can free up the equivalent of 825 m² of additional storage — eliminating the need for costly external leases worth tens of thousands annually.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 p-5 rounded-xl items-start" style="background:#eff6ff; border:1px solid #bfdbfe;">
+        <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 text-xl font-black">⚡</div>
+        <div>
+          <p class="font-black text-navy mb-1">Cold Storage Operating Cost Savings</p>
+          <p class="text-slate-600 text-sm leading-relaxed">Higher storage density means less empty space to cool. Our customers have recorded electricity savings of thousands of dollars per month — verified across multiple cold-chain installations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Media Center -->
 <section class="section">
   <div class="container">
@@ -215,6 +347,60 @@
           <p class="text-slate-500 text-sm mt-1">Case studies and cost analysis in detail</p>
         </div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- After-Sales Guarantee -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">After-Sales Guarantee</p>
+      <h2 class="section-title">Rack Korea Stands Behind<br class="md:hidden"/> Every Installation</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="p-6 text-center" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+          <div class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mx-auto mb-3 text-3xl">🚨</div>
+          <p class="text-orange-400 font-black text-2xl mb-0.5">Within 24 hrs</p>
+          <p class="text-white font-bold text-sm">Emergency On-Site Response</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-slate-500 text-sm leading-relaxed">Our nationwide service network guarantees an on-site response within <strong class="text-navy">24 hours</strong> of a breakdown report — minimising logistics downtime.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-200">
+            <span>✓</span> Nationwide Coverage
+          </div>
+        </div>
+      </div>
+
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="p-6 text-center" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+          <div class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mx-auto mb-3 text-3xl">🛡️</div>
+          <p class="text-orange-400 font-black text-2xl mb-0.5">Core Parts</p>
+          <p class="text-white font-bold text-sm">Free Warranty Coverage</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-slate-500 text-sm leading-relaxed">Drive motors, controllers, and key components are covered under our <strong class="text-navy">free warranty</strong>. We stand behind our quality with confidence.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1.5 rounded-full border border-orange-200">
+            <span>✓</span> Domestic-Made Core Parts
+          </div>
+        </div>
+      </div>
+
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="p-6 text-center" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+          <div class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mx-auto mb-3 text-3xl">🔍</div>
+          <p class="text-orange-400 font-black text-2xl mb-0.5">Proactive</p>
+          <p class="text-white font-bold text-sm">Annual Inspection Service</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-slate-500 text-sm leading-relaxed">Annual scheduled inspections enable <strong class="text-navy">pre-emptive action before failures occur</strong>. Motors, rails, and sensors are all checked with a full report provided.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full border border-blue-200">
+            <span>✓</span> Full Inspection Report
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -294,6 +480,55 @@ function goSpaceSlide(n) {
 spaceTimer = setInterval(() => goSpaceSlide((spaceIdx + 1) % spaceSlides.length), 3500);
 spaceEl.addEventListener('mouseenter', () => clearInterval(spaceTimer));
 spaceEl.addEventListener('mouseleave', () => { spaceTimer = setInterval(() => goSpaceSlide((spaceIdx + 1) % spaceSlides.length), 3500); });
+
+// ── Quick Estimate Calculator ──
+function calcEstimate() {
+  const area   = parseFloat(document.getElementById('est-area').value);
+  const levels = document.getElementById('est-levels').value;
+  const env    = document.getElementById('est-env').value;
+  const type   = document.getElementById('est-type').value;
+
+  const result      = document.getElementById('est-result');
+  const placeholder = document.getElementById('est-placeholder');
+
+  if (!area || area < 50 || !levels || !env || !type) {
+    result.classList.add('hidden');
+    placeholder.classList.remove('hidden');
+    return;
+  }
+
+  // Base: ~50,000 KRW per sqm
+  let base = area * 50000;
+
+  // Level multiplier
+  const levelMult = { '3': 1.0, '4': 1.18, '5': 1.35, '6': 1.52, '7': 1.70 };
+  base *= (levelMult[levels] || 1.0);
+
+  // Environment multiplier
+  if (env === 'cold') base *= 1.30;
+
+  // Type multiplier
+  if (type === 'electric') base *= 1.22;
+
+  const low  = Math.round(base * 0.85 / 1000000);
+  const high = Math.round(base * 1.15 / 1000000);
+
+  document.getElementById('est-price').textContent =
+    `KRW ${low.toLocaleString()}M ~ ${high.toLocaleString()}M`;
+
+  // Tags
+  const envLabel  = env === 'cold' ? '❄️ Cold Storage' : '🌡️ Ambient';
+  const typeLabel = type === 'electric' ? '⚡ Electric Rail' : '🔧 Manual No-Rail';
+  document.getElementById('est-tags').innerHTML = `
+    <span class="bg-white/10 text-white text-xs font-bold px-3 py-1 rounded-full">${area} m²</span>
+    <span class="bg-white/10 text-white text-xs font-bold px-3 py-1 rounded-full">${levels}-Level</span>
+    <span class="bg-white/10 text-white text-xs font-bold px-3 py-1 rounded-full">${envLabel}</span>
+    <span class="bg-white/10 text-white text-xs font-bold px-3 py-1 rounded-full">${typeLabel}</span>
+  `;
+
+  placeholder.classList.add('hidden');
+  result.classList.remove('hidden');
+}
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

@@ -319,23 +319,23 @@
           <h3 class="font-black text-navy text-lg mb-5 pb-3 border-b border-slate-100 mt-4">창고 정보</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
             <div class="form-group">
-              <label for="size">창고 규모 (㎡ 또는 평)</label>
-              <input type="text" id="size" name="size" placeholder="예: 1,000㎡ / 300평" />
+              <label for="size">창고 규모 (㎡ 또는 평) <span class="text-orange-500">*</span></label>
+              <input type="text" id="size" name="size" placeholder="예: 1,000㎡ / 300평" required />
             </div>
             <div class="form-group">
-              <label for="environment">창고 환경</label>
-              <select id="environment" name="environment">
+              <label for="environment">창고 환경 <span class="text-orange-500">*</span></label>
+              <select id="environment" name="environment" required>
                 <option value="">선택해주세요</option>
                 <option value="상온">상온 (15~25℃)</option>
                 <option value="저온">저온 (0~10℃)</option>
                 <option value="냉장">냉장 (-2~5℃)</option>
                 <option value="냉동">냉동 (-18℃ 이하)</option>
-                <option value="극저온">극저온 (-25℃ 이하)</option>
+                <option value="극저온">극저온 (-25℃이하)</option>
                 <option value="기타">기타</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="forklift">지게차 타입</label>
+              <label for="forklift">지게차 타입 <span class="text-slate-400 text-xs font-normal">(모를 경우 비워도 됩니다)</span></label>
               <select id="forklift" name="forklift">
                 <option value="">선택해주세요</option>
                 <option value="카운터밸런스 지게차">카운터밸런스 지게차</option>
@@ -347,39 +347,40 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="floors">층수 (복층 여부)</label>
+              <label for="floors">층수 (복층 여부) <span class="text-slate-400 text-xs font-normal">(모를 경우 비워도 됩니다)</span></label>
               <input type="text" id="floors" name="floors" placeholder="예: 단층 / 2층 복층" />
             </div>
           </div>
 
           <!-- 파렛트 규격 -->
-          <h3 class="font-black text-navy text-lg mb-5 pb-3 border-b border-slate-100 mt-4">파렛트 규격</h3>
+          <h3 class="font-black text-navy text-lg mb-2 pb-3 border-b border-slate-100 mt-4">파렛트 규격 <span class="text-orange-500">*</span></h3>
+          <p class="text-slate-400 text-xs mb-4">정확한 정보가 아니어도 괜찮습니다. 확인 가능한 범위만 입력해주세요.</p>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-4">
             <div class="form-group">
               <label for="pallet_w">가로 (mm)</label>
-              <input type="number" id="pallet_w" name="pallet_w" placeholder="1100" />
+              <input type="number" id="pallet_w" name="pallet_w" placeholder="예: 1100" />
             </div>
             <div class="form-group">
               <label for="pallet_d">세로 (mm)</label>
-              <input type="number" id="pallet_d" name="pallet_d" placeholder="1100" />
+              <input type="number" id="pallet_d" name="pallet_d" placeholder="예: 1100" />
             </div>
             <div class="form-group">
               <label for="pallet_h">높이 (mm)</label>
-              <input type="number" id="pallet_h" name="pallet_h" placeholder="1200" />
+              <input type="number" id="pallet_h" name="pallet_h" placeholder="예: 1200" />
             </div>
             <div class="form-group">
-              <label for="pallet_kg">무게 (kg)</label>
-              <input type="number" id="pallet_kg" name="pallet_kg" placeholder="1000" />
+              <label for="pallet_kg">무게 (kg) <span class="text-slate-400 text-xs font-normal">(모를 경우 비워도 됩니다)</span></label>
+              <input type="number" id="pallet_kg" name="pallet_kg" placeholder="예: 1000" />
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
             <div class="form-group">
-              <label for="levels">단수 (높이 방향 적재 단)</label>
+              <label for="levels">단수 (몇 층까지 쌓는지, 예: 3단) <span class="text-slate-400 text-xs font-normal">(모를 경우 비워도 됩니다)</span></label>
               <input type="text" id="levels" name="levels" placeholder="예: 3단" />
             </div>
             <div class="form-group">
-              <label for="rows">열수 (통로 방향 랙 열)</label>
+              <label for="rows">열수 (랙 줄 개수, 모르면 비워도 됩니다)</label>
               <input type="text" id="rows" name="rows" placeholder="예: 10열" />
             </div>
           </div>
