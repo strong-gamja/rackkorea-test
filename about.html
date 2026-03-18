@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제품 소개 | 랙코리아</title>
+  <meta name="description" content="랙코리아 이동식 랙의 작동 원리, 전동랙 vs 고정랙 비교, 기술 유형, 인증 정보를 확인하세요." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { navy: '#0f172a', orange: '#f97316' } } }
+    }
+  </script>
+</head>
+<body>
+
+<!-- 네비게이션 -->
+<nav id="gnb" class="scrolled">
+  <div class="gnb-inner">
+    <a href="index.html" class="gnb-logo flex items-center gap-2">
+      <img src="assets/logo.png" alt="랙코리아 로고" style="height:40px;" />
+    </a>
+    <ul class="gnb-menu">
+      <li><a href="index.html">홈</a></li>
+      <li><a href="about.html" style="color:#f97316;">제품 소개</a></li>
+      <li><a href="portfolio.html">설치 사례</a></li>
+      <li><a href="contact.html">문의하기</a></li>
+      <li>
+        <a href="en/about.html" class="lang-toggle">🌐 EN</a>
+      </li>
+      <li><a href="contact.html" class="btn-cta">무료 견적 받기</a></li>
+    </ul>
+    <button class="gnb-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="gnb-mobile-menu" id="mobile-menu">
+    <a href="index.html">홈</a>
+    <a href="about.html">제품 소개</a>
+    <a href="portfolio.html">설치 사례</a>
+    <a href="contact.html">문의하기</a>
+    <a href="contact.html" class="btn-cta text-center">무료 견적 받기</a>
+  </div>
+</nav>
+
+<!-- 페이지 히어로 -->
+<div class="pt-24 pb-12 section-light text-center">
+  <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Product</p>
+  <h1 class="section-title">제품 소개</h1>
+  <p class="text-slate-500">이동식 랙의 작동 원리부터 기술 유형까지, 모든 것을 알려드립니다</p>
+</div>
+
+<!-- ==============================
+     1. 작동 원리
+     ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">작동 원리</h2>
+      <p class="section-sub">전동 모터로 랙을 좌우로 이동시켜 필요한 곳에만 통로를 생성</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- 좌: 슬라이더 -->
+      <div class="relative rounded-xl overflow-hidden shadow-xl" id="principle-slider" style="min-height:360px;">
+        <div class="principle-slide" style="height:360px; display:block;">
+          <img src="assets/photos/photo_004.png" alt="설치 현장 전경" class="w-full h-full object-cover" />
+        </div>
+        <div class="principle-slide" style="height:360px; display:none;">
+          <img src="assets/photos/photo_005.jpeg" alt="이동식 랙 작동" class="w-full h-full object-cover" />
+        </div>
+        <div class="principle-slide" style="height:360px; display:none;">
+          <img src="assets/photos/photo_003.jpeg" alt="이동식 랙 구조" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+          <button class="hero-dot active" onclick="goPSlide(0)"></button>
+          <button class="hero-dot" onclick="goPSlide(1)"></button>
+          <button class="hero-dot" onclick="goPSlide(2)"></button>
+        </div>
+      </div>
+
+      <!-- 우: 3단계 스텝 카드 -->
+      <div class="space-y-5">
+        <div class="rk-card p-6 flex gap-4 items-start fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div class="w-12 h-12 rounded-full bg-orange-500 text-white font-black text-xl flex items-center justify-center flex-shrink-0">1</div>
+          <div>
+            <h3 class="font-bold text-navy text-lg mb-1">컨트롤러 조작</h3>
+            <p class="text-slate-500 text-sm">전동 컨트롤러 또는 스마트폰 앱으로 원하는 랙 간 통로를 선택합니다. 통로가 열리는 동안 안전 센서가 자동 작동합니다.</p>
+          </div>
+        </div>
+        <div class="rk-card p-6 flex gap-4 items-start fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div class="w-12 h-12 rounded-full bg-orange-500 text-white font-black text-xl flex items-center justify-center flex-shrink-0">2</div>
+          <div>
+            <h3 class="font-bold text-navy text-lg mb-1">랙 자동 이동</h3>
+            <p class="text-slate-500 text-sm">전동 모터가 레일(또는 바닥 플레이트) 위를 따라 랙을 부드럽게 이동시킵니다. 소음이 거의 없으며 최대 하중 수십 톤까지 지지합니다.</p>
+          </div>
+        </div>
+        <div class="rk-card p-6 flex gap-4 items-start fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div class="w-12 h-12 rounded-full bg-orange-500 text-white font-black text-xl flex items-center justify-center flex-shrink-0">3</div>
+          <div>
+            <h3 class="font-bold text-navy text-lg mb-1">지게차 진입 & 작업</h3>
+            <p class="text-slate-500 text-sm">통로가 완전히 열리면 지게차가 진입하여 화물을 싣고 내립니다. 작업 완료 후 통로를 닫으면 다시 최대 밀도로 보관됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     2. 전동랙 vs 고정랙 비교
+     ============================== -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">전동랙 vs 고정랙 비교</h2>
+      <p class="section-sub">단순한 수치로 확인하는 압도적인 효율 차이</p>
+    </div>
+
+    <!-- 상단 요약 카드 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="rk-card p-6 text-center fade-up border-t-4 border-orange-500">
+        <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">전동 이동식 랙</p>
+        <div class="text-5xl font-black text-navy mb-2">200%</div>
+        <p class="text-slate-500">동일 면적 대비 보관 용량</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up border-t-4 border-slate-300">
+        <p class="text-slate-400 font-bold text-sm uppercase tracking-widest mb-2">고정식 랙</p>
+        <div class="text-5xl font-black text-slate-400 mb-2">100%</div>
+        <p class="text-slate-400">기준 보관 용량</p>
+      </div>
+    </div>
+
+    <!-- 상세 비교표 -->
+    <div class="rk-card overflow-x-auto fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+      <table class="w-full text-sm">
+        <thead>
+          <tr style="background:#0f172a; color:#fff;">
+            <th class="p-4 text-left">비교 항목</th>
+            <th class="p-4 text-center text-orange-400">전동 이동식 랙</th>
+            <th class="p-4 text-center text-slate-300">고정식 랙</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-slate-100">
+            <td class="p-4 font-medium">보관 밀도</td>
+            <td class="p-4 text-center"><span class="text-orange-500 font-bold">최대 200%</span></td>
+            <td class="p-4 text-center text-slate-400">100% (기준)</td>
+          </tr>
+          <tr class="border-b border-slate-100 bg-slate-50">
+            <td class="p-4 font-medium">통로 수</td>
+            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">1개 (공유)</span></td>
+            <td class="p-4 text-center text-slate-400">N개 (고정)</td>
+          </tr>
+          <tr class="border-b border-slate-100">
+            <td class="p-4 font-medium">창고 면적 활용률</td>
+            <td class="p-4 text-center"><span class="text-orange-500 font-bold">85% 이상</span></td>
+            <td class="p-4 text-center text-slate-400">40~50%</td>
+          </tr>
+          <tr class="border-b border-slate-100 bg-slate-50">
+            <td class="p-4 font-medium">냉동창고 에너지</td>
+            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">최대 30% 절감</span></td>
+            <td class="p-4 text-center text-slate-400">기준</td>
+          </tr>
+          <tr class="border-b border-slate-100">
+            <td class="p-4 font-medium">초기 투자비</td>
+            <td class="p-4 text-center text-slate-600">높음 (ROI 3~5년)</td>
+            <td class="p-4 text-center text-slate-400">낮음</td>
+          </tr>
+          <tr class="bg-slate-50">
+            <td class="p-4 font-medium">확장·재배치</td>
+            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">모듈형 확장 가능</span></td>
+            <td class="p-4 text-center text-slate-400">제한적</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     공간 비교 Before / After
+     ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Space Comparison</p>
+      <h2 class="section-title">직관적인 공간 비교</h2>
+      <p class="section-sub">같은 창고, 전혀 다른 결과 — 숫자가 증명합니다</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <!-- Before: 고정랙 -->
+      <div class="fade-up">
+        <div class="relative rounded-2xl overflow-hidden mb-4" style="background:#e2e8f0; height:260px;">
+          <!-- [CUSTOMIZE] 고정랙 현장 이미지 -->
+          <img src="assets/photos/photo_002.jpeg" alt="고정식 랙" class="w-full h-full object-cover opacity-80" />
+          <div class="absolute inset-0 flex items-end p-5" style="background:linear-gradient(to top, rgba(15,23,42,0.75) 0%, transparent 60%);">
+            <span class="text-white font-black text-lg">BEFORE — 고정식 랙</span>
+          </div>
+          <div class="absolute top-4 left-4 bg-slate-600 text-white text-xs font-bold px-3 py-1 rounded-full">고정식</div>
+        </div>
+        <div class="rk-card p-5" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-slate-500 text-sm font-medium">바닥 활용률</span>
+            <span class="text-slate-700 font-black text-xl">40~50%</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-4 mb-4">
+            <div class="h-4 rounded-full bg-slate-400 transition-all duration-1000" style="width:45%"></div>
+          </div>
+          <ul class="space-y-2 text-sm text-slate-500">
+            <li class="flex gap-2"><span>❌</span> 고정 통로로 절반 이상 낭비</li>
+            <li class="flex gap-2"><span>❌</span> 창고 증설·임대 비용 추가 발생</li>
+            <li class="flex gap-2"><span>❌</span> 냉동창고 빈 공간 냉각 낭비</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- After: 전동 이동식 랙 -->
+      <div class="fade-up">
+        <div class="relative rounded-2xl overflow-hidden mb-4" style="height:260px;">
+          <!-- [CUSTOMIZE] 이동식 랙 현장 이미지 -->
+          <img src="assets/photos/photo_004.png" alt="전동 이동식 랙" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-end p-5" style="background:linear-gradient(to top, rgba(15,23,42,0.75) 0%, transparent 60%);">
+            <span class="text-white font-black text-lg">AFTER — 전동 이동식 랙</span>
+          </div>
+          <div class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">전동 이동식</div>
+        </div>
+        <div class="rk-card p-5 border-2 border-orange-500" style="box-shadow:0 4px 24px rgba(249,115,22,0.15);">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-slate-500 text-sm font-medium">바닥 활용률</span>
+            <span class="text-orange-500 font-black text-xl">80~85%</span>
+          </div>
+          <div class="w-full bg-orange-100 rounded-full h-4 mb-4">
+            <div class="h-4 rounded-full bg-orange-500 transition-all duration-1000" style="width:82%"></div>
+          </div>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> 통로 1개로 전 구역 접근</li>
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> 동일 면적에 <strong>2배 보관</strong> 실현</li>
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> 냉동창고 전기료 최대 30% 절감</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 강조 배너 -->
+    <div class="fade-up rounded-2xl p-6 md:p-8 text-center" style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);">
+      <p class="text-orange-400 font-bold text-sm uppercase tracking-widest mb-2">Result</p>
+      <p class="text-white font-black mb-1" style="font-size:clamp(1.5rem,3vw,2.2rem);">공간 활용률 <span class="text-orange-400">최대 2배</span> 증가</p>
+      <p class="text-white/60 text-sm">같은 임대 비용, 같은 창고 면적으로 2배의 물량을 처리하세요</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     3. Technology Types
+     ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">Technology Types</h2>
+      <p class="section-sub">현장 조건에 따라 최적의 방식을 선택하세요</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- 레일 방식 -->
+      <div class="rk-card fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="rk-img" style="height:240px;">
+          <img src="assets/photos/photo_005.jpeg" alt="레일 방식 이동식 랙" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">RAIL TYPE</span>
+            <h3 class="font-bold text-navy text-xl">레일 방식</h3>
+          </div>
+          <p class="text-slate-500 text-sm mb-4 leading-relaxed">바닥에 레일을 매립하여 랙을 이동시키는 방식입니다. 주행 직진성이 높아 대형 창고·냉동창고에 최적이며, 높은 적재 하중을 안정적으로 지지합니다.</p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> 최대 하중 처리에 유리</li>
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> 냉동·냉장 창고 특화</li>
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> 직진 이동 정밀도 높음</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 노레일 방식 -->
+      <div class="rk-card fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="rk-img" style="height:240px;">
+          <img src="assets/photos/photo_003.jpeg" alt="노레일 방식 이동식 랙" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-navy text-white text-xs font-bold px-3 py-1 rounded-full">NO-RAIL TYPE</span>
+            <h3 class="font-bold text-navy text-xl">노레일 방식</h3>
+          </div>
+          <p class="text-slate-500 text-sm mb-4 leading-relaxed">바닥 공사 없이 기존 창고에 바로 설치 가능한 방식입니다. 설치 기간이 짧고 이전·재배치가 자유로워 임차 창고나 중·소형 창고에 인기입니다.</p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-navy font-bold">✓</span> 바닥 공사 불필요</li>
+            <li class="flex gap-2"><span class="text-navy font-bold">✓</span> 설치·이전 비용 절감</li>
+            <li class="flex gap-2"><span class="text-navy font-bold">✓</span> 임차 창고에 적합</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     3중 안전 시스템
+     ============================== -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Safety First</p>
+      <h2 class="section-title">안전사고 0건을 위한<br class="md:hidden"/><span class="accent-line">랙코리아의 3중 안전 시스템</span></h2>
+      <p class="section-sub">작업자·장비·화물 모두를 지키는 다층 안전 설계</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 카드 1 -->
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <!-- [CUSTOMIZE] 센서 이미지/GIF -->
+        <div class="rk-img bg-slate-100 flex items-center justify-center" style="height:160px; background:linear-gradient(135deg,#f0f9ff,#e0f2fe);">
+          <span class="text-6xl">🚨</span>
+        </div>
+        <div class="p-5">
+          <div class="inline-block bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded mb-3">SENSOR</div>
+          <h3 class="font-black text-navy text-base mb-2">통로 작업자 감지 센서</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">적외선·초음파 이중 센서가 통로 내 작업자를 감지하면 랙 이동을 즉시 자동 차단합니다.</p>
+        </div>
+      </div>
+      <!-- 카드 2 -->
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <div class="rk-img bg-slate-100 flex items-center justify-center" style="height:160px; background:linear-gradient(135deg,#fff7ed,#ffedd5);">
+          <span class="text-6xl">🛡️</span>
+        </div>
+        <div class="p-5">
+          <div class="inline-block bg-orange-100 text-orange-600 text-xs font-bold px-2 py-0.5 rounded mb-3">BUMPER</div>
+          <h3 class="font-black text-navy text-base mb-2">지게차 충돌 방지 범퍼</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">랙 하단 전면에 탄성 충격 흡수 범퍼를 장착하여 지게차 접촉 시 구조 손상을 방지합니다.</p>
+        </div>
+      </div>
+      <!-- 카드 3 -->
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <div class="rk-img bg-slate-100 flex items-center justify-center" style="height:160px; background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
+          <span class="text-6xl">⛔</span>
+        </div>
+        <div class="p-5">
+          <div class="inline-block bg-emerald-100 text-emerald-600 text-xs font-bold px-2 py-0.5 rounded mb-3">STOP</div>
+          <h3 class="font-black text-navy text-base mb-2">비상 정지 시스템</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">각 랙 모서리에 비상 정지 버튼 탑재. 누르는 즉시 전체 시스템이 0.3초 내 정지합니다.</p>
+        </div>
+      </div>
+      <!-- 카드 4 -->
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        <div class="rk-img bg-slate-100 flex items-center justify-center" style="height:160px; background:linear-gradient(135deg,#faf5ff,#ede9fe);">
+          <span class="text-6xl">🔒</span>
+        </div>
+        <div class="p-5">
+          <div class="inline-block bg-purple-100 text-purple-600 text-xs font-bold px-2 py-0.5 rounded mb-3">LOCK</div>
+          <h3 class="font-black text-navy text-base mb-2">낙하 방지 잠금장치</h3>
+          <p class="text-slate-500 text-sm leading-relaxed">지진·충격 발생 시 자동 잠금되는 낙하 방지 핀으로 화물과 작업자를 동시에 보호합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 인증 배지 -->
+    <div class="mt-10 flex flex-wrap justify-center gap-4 fade-up">
+      <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-5 py-2.5 shadow-sm">
+        <span class="text-emerald-500 font-black text-lg">✓</span>
+        <span class="text-navy font-bold text-sm">산업안전보건법 적합</span>
+      </div>
+      <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-5 py-2.5 shadow-sm">
+        <span class="text-emerald-500 font-black text-lg">✓</span>
+        <span class="text-navy font-bold text-sm">KS 안전확인 인증</span>
+      </div>
+      <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-full px-5 py-2.5 shadow-sm">
+        <span class="text-emerald-500 font-black text-lg">✓</span>
+        <span class="text-navy font-bold text-sm">설치 후 안전 교육 제공</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     4. Certification
+     [CUSTOMIZE] 인증 이미지 경로 수정
+     ============================== -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">인증 및 특허</h2>
+      <p class="section-sub">검증된 품질과 기술력으로 안심하고 선택하세요</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="rk-card p-6 text-center fade-up" style="background:var(--bg-light); box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <!-- [CUSTOMIZE] 인증 로고 이미지 경로 -->
+        <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-full shadow text-4xl">🏅</div>
+        <h4 class="font-bold text-navy text-sm">KS 인증</h4>
+        <p class="text-slate-400 text-xs mt-1">한국산업표준</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="background:var(--bg-light); box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-full shadow text-4xl">📜</div>
+        <h4 class="font-bold text-navy text-sm">특허 등록</h4>
+        <p class="text-slate-400 text-xs mt-1">이동식 랙 구조 특허</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="background:var(--bg-light); box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-full shadow text-4xl">🛡️</div>
+        <h4 class="font-bold text-navy text-sm">안전확인 인증</h4>
+        <p class="text-slate-400 text-xs mt-1">산업안전보건법 적합</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="background:var(--bg-light); box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-full shadow text-4xl">🌐</div>
+        <h4 class="font-bold text-navy text-sm">ISO 9001</h4>
+        <p class="text-slate-400 text-xs mt-1">품질경영시스템</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     도입 절차 타임라인 (5단계)
+     ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Process</p>
+      <h2 class="section-title">한눈에 보는 도입 절차</h2>
+      <p class="section-sub">문의부터 사후관리까지, 랙코리아가 모든 단계를 책임집니다</p>
+    </div>
+
+    <!-- 데스크탑: 가로형 타임라인 -->
+    <div class="hidden md:flex items-start gap-0 relative">
+      <!-- 연결선 -->
+      <div class="absolute top-10 left-0 right-0 h-0.5 bg-orange-200" style="top:40px; z-index:0;"></div>
+
+      <!-- Step 1 -->
+      <div class="flex-1 flex flex-col items-center text-center px-3 relative fade-up" style="z-index:1;">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 text-3xl font-black border-4 border-orange-500 bg-white shadow-lg">1</div>
+        <div class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">STEP 1</div>
+        <h4 class="font-black text-navy text-sm mb-2">현장 방문<br/>및 실측</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">전문 엔지니어가 직접 방문, 치수·바닥·기둥 위치를 정밀 실측합니다</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="flex-1 flex flex-col items-center text-center px-3 relative fade-up" style="z-index:1;">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 text-3xl font-black border-4 border-orange-500 bg-white shadow-lg">2</div>
+        <div class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">STEP 2</div>
+        <h4 class="font-black text-navy text-sm mb-2">맞춤형<br/>도면 설계</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">실측 데이터 기반 CAD 도면 작성, 공간 레이아웃 최적화 후 확정</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="flex-1 flex flex-col items-center text-center px-3 relative fade-up" style="z-index:1;">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 text-3xl font-black border-4 border-orange-500 bg-white shadow-lg">3</div>
+        <div class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">STEP 3</div>
+        <h4 class="font-black text-navy text-sm mb-2">제작 및<br/>야간·주말 설치</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">현장 운영 중단 최소화 — 야간·주말 설치 가능, 단기 완공</p>
+      </div>
+      <!-- Step 4 -->
+      <div class="flex-1 flex flex-col items-center text-center px-3 relative fade-up" style="z-index:1;">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 text-3xl font-black border-4 border-orange-500 bg-white shadow-lg">4</div>
+        <div class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">STEP 4</div>
+        <h4 class="font-black text-navy text-sm mb-2">시운전 및<br/>안전 교육</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">전 직원 대상 운전 교육 + 비상 대응 절차 교육 포함 완료</p>
+      </div>
+      <!-- Step 5 -->
+      <div class="flex-1 flex flex-col items-center text-center px-3 relative fade-up" style="z-index:1;">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 text-3xl font-black border-4 border-navy bg-navy shadow-lg" style="color:#f97316;">5</div>
+        <div class="text-xs font-bold px-3 py-1 rounded-full mb-3 text-white" style="background:#0f172a;">STEP 5</div>
+        <h4 class="font-black text-navy text-sm mb-2">정기<br/>유지보수</h4>
+        <p class="text-slate-500 text-xs leading-relaxed">연간 점검 계약으로 최상 상태 유지, 고장 전 선제 대응</p>
+      </div>
+    </div>
+
+    <!-- 모바일: 세로형 타임라인 -->
+    <div class="flex md:hidden flex-col gap-0">
+      <div class="relative pl-12 pb-8 fade-up">
+        <div class="absolute left-0 top-0 bottom-0 flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-orange-500 text-white font-black flex items-center justify-center text-base flex-shrink-0 shadow">1</div>
+          <div class="flex-1 w-0.5 bg-orange-200 mt-1"></div>
+        </div>
+        <div class="bg-orange-50 rounded-xl p-4 ml-2">
+          <p class="font-black text-navy text-sm mb-1">현장 방문 및 실측</p>
+          <p class="text-slate-500 text-xs leading-relaxed">전문 엔지니어가 직접 방문, 치수·바닥·기둥 위치를 정밀 실측합니다</p>
+        </div>
+      </div>
+      <div class="relative pl-12 pb-8 fade-up">
+        <div class="absolute left-0 top-0 bottom-0 flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-orange-500 text-white font-black flex items-center justify-center text-base flex-shrink-0 shadow">2</div>
+          <div class="flex-1 w-0.5 bg-orange-200 mt-1"></div>
+        </div>
+        <div class="bg-orange-50 rounded-xl p-4 ml-2">
+          <p class="font-black text-navy text-sm mb-1">맞춤형 도면 설계</p>
+          <p class="text-slate-500 text-xs leading-relaxed">실측 데이터 기반 CAD 도면 작성, 공간 레이아웃 최적화 후 확정</p>
+        </div>
+      </div>
+      <div class="relative pl-12 pb-8 fade-up">
+        <div class="absolute left-0 top-0 bottom-0 flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-orange-500 text-white font-black flex items-center justify-center text-base flex-shrink-0 shadow">3</div>
+          <div class="flex-1 w-0.5 bg-orange-200 mt-1"></div>
+        </div>
+        <div class="bg-orange-50 rounded-xl p-4 ml-2">
+          <p class="font-black text-navy text-sm mb-1">제작 및 야간·주말 설치</p>
+          <p class="text-slate-500 text-xs leading-relaxed">현장 운영 중단 최소화 — 야간·주말 설치 가능, 단기 완공</p>
+        </div>
+      </div>
+      <div class="relative pl-12 pb-8 fade-up">
+        <div class="absolute left-0 top-0 bottom-0 flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full bg-orange-500 text-white font-black flex items-center justify-center text-base flex-shrink-0 shadow">4</div>
+          <div class="flex-1 w-0.5 bg-orange-200 mt-1"></div>
+        </div>
+        <div class="bg-orange-50 rounded-xl p-4 ml-2">
+          <p class="font-black text-navy text-sm mb-1">시운전 및 안전 교육</p>
+          <p class="text-slate-500 text-xs leading-relaxed">전 직원 대상 운전 교육 + 비상 대응 절차 교육 포함 완료</p>
+        </div>
+      </div>
+      <div class="relative pl-12 fade-up">
+        <div class="absolute left-0 top-0 flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full text-orange-500 font-black flex items-center justify-center text-base flex-shrink-0 shadow" style="background:#0f172a;">5</div>
+        </div>
+        <div class="rounded-xl p-4 ml-2" style="background:#0f172a;">
+          <p class="font-black text-white text-sm mb-1">정기 유지보수</p>
+          <p class="text-white/60 text-xs leading-relaxed">연간 점검 계약으로 최상 상태 유지, 고장 전 선제 대응</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==============================
+     5. Quick Quote CTA
+     ============================== -->
+<section class="py-16" style="background:#0f172a;">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 fade-up">
+      <div class="text-white">
+        <h3 class="text-2xl font-black mb-1">현장에 맞는 이동식 랙, 바로 견적 받아보세요</h3>
+        <p class="text-white/60 text-sm">전문 컨설턴트가 창고 규모·환경에 맞는 최적 솔루션을 제안해 드립니다</p>
+      </div>
+      <a href="contact.html" class="btn-cta flex-shrink-0" style="font-size:1rem; padding:0.8rem 2.2rem; white-space:nowrap;">견적 문의하기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 푸터 -->
+<footer>
+  <div class="footer-inner">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="footer-logo">RACK KOREA</div>
+        <p class="footer-info">이동식 랙 전문 제조·설치 기업</p>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">바로가기</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-orange-400 transition-colors">제품 소개</a></li>
+          <li><a href="portfolio.html" class="hover:text-orange-400 transition-colors">설치 사례</a></li>
+          <li><a href="contact.html" class="hover:text-orange-400 transition-colors">문의하기</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">연락처</p>
+        <p class="footer-info">Tel: 031-351-3985<br/>Email: master@rackkorea.co.kr</p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 랙코리아(Rack Korea). All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 네비 (서브페이지는 항상 scrolled)
+document.getElementById('gnb').classList.add('scrolled');
+document.getElementById('gnb').classList.remove('transparent');
+
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function toggleLang() {
+  const el = document.getElementById('lang-label');
+  el.textContent = el.textContent === 'KR' ? 'EN' : 'KR';
+}
+
+// Principle slider
+const pSlides = document.querySelectorAll('.principle-slide');
+const pDots   = document.querySelectorAll('.hero-dot');
+let pIdx = 0;
+function goPSlide(n) {
+  pSlides[pIdx].style.display = 'none';
+  pDots[pIdx].classList.remove('active');
+  pIdx = n;
+  pSlides[pIdx].style.display = 'block';
+  pDots[pIdx].classList.add('active');
+}
+setInterval(() => goPSlide((pIdx + 1) % pSlides.length), 4000);
+
+// Fade-up
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

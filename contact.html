@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문의하기 | 랙코리아</title>
+  <meta name="description" content="랙코리아 이동식 랙 설치 문의 및 무료 견적 신청. 전문 컨설턴트가 현장에 맞는 최적 솔루션을 제안해 드립니다." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { navy: '#0f172a', orange: '#f97316' } } }
+    }
+  </script>
+</head>
+<body>
+
+<!-- 네비게이션 -->
+<nav id="gnb" class="scrolled">
+  <div class="gnb-inner">
+    <a href="index.html" class="gnb-logo flex items-center gap-2"><img src="assets/logo.png" alt="랙코리아 로고" style="height:40px;" /></a>
+    <ul class="gnb-menu">
+      <li><a href="index.html">홈</a></li>
+      <li><a href="about.html">제품 소개</a></li>
+      <li><a href="portfolio.html">설치 사례</a></li>
+      <li><a href="contact.html" style="color:#f97316;">문의하기</a></li>
+      <li><a href="en/contact.html" class="lang-toggle">🌐 EN</a></li>
+      <li><a href="contact.html" class="btn-cta">무료 견적 받기</a></li>
+    </ul>
+    <button class="gnb-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="gnb-mobile-menu" id="mobile-menu">
+    <a href="index.html">홈</a>
+    <a href="about.html">제품 소개</a>
+    <a href="portfolio.html">설치 사례</a>
+    <a href="contact.html">문의하기</a>
+    <a href="contact.html" class="btn-cta text-center">무료 견적 받기</a>
+  </div>
+</nav>
+
+<!-- 페이지 헤더 -->
+<div class="pt-24 pb-12 section-light text-center">
+  <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Contact</p>
+  <h1 class="section-title">견적 및 문의</h1>
+  <p class="text-slate-500">아래 정보를 입력하시면 담당 컨설턴트가 1~2영업일 내에 연락드립니다</p>
+</div>
+
+<!-- ==============================
+     실시간 예상 견적 계산기
+     ============================== -->
+<section class="section-light py-14">
+  <div class="container">
+    <div class="max-w-3xl mx-auto fade-up">
+
+      <!-- 헤더 -->
+      <div class="text-center mb-8">
+        <span class="inline-block bg-orange-500 text-white text-xs font-black px-4 py-1.5 rounded-full tracking-widest uppercase mb-3">무료 · 즉시 계산</span>
+        <h2 class="section-title">예상 견적 알아보기</h2>
+        <p class="text-slate-500 text-sm mt-1">조건을 선택하면 바로 예상 금액 범위를 확인할 수 있습니다</p>
+      </div>
+
+      <!-- 계산기 카드 -->
+      <div class="rk-card p-8" style="box-shadow:0 8px 40px rgba(15,23,42,0.10);">
+
+        <!-- Q1. 창고 규모 -->
+        <div class="calc-group mb-7">
+          <p class="font-black text-navy text-sm mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-orange-500 text-white text-xs flex items-center justify-center font-black">1</span>
+            창고 규모
+          </p>
+          <div class="grid grid-cols-3 gap-3" id="q-size">
+            <label class="calc-option" data-group="size" data-value="small">
+              <input type="radio" name="calc-size" value="small" class="sr-only" />
+              <span class="icon">🏠</span>
+              <span class="label">50평 미만</span>
+              <span class="sub">소규모</span>
+            </label>
+            <label class="calc-option" data-group="size" data-value="medium">
+              <input type="radio" name="calc-size" value="medium" class="sr-only" />
+              <span class="icon">🏭</span>
+              <span class="label">50 ~ 100평</span>
+              <span class="sub">중규모</span>
+            </label>
+            <label class="calc-option" data-group="size" data-value="large">
+              <input type="radio" name="calc-size" value="large" class="sr-only" />
+              <span class="icon">🏗️</span>
+              <span class="label">100평 이상</span>
+              <span class="sub">대규모</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q2. 랙 종류 -->
+        <div class="calc-group mb-7">
+          <p class="font-black text-navy text-sm mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-orange-500 text-white text-xs flex items-center justify-center font-black">2</span>
+            랙 종류
+          </p>
+          <div class="grid grid-cols-2 gap-3" id="q-rack">
+            <label class="calc-option" data-group="rack" data-value="mobile">
+              <input type="radio" name="calc-rack" value="mobile" class="sr-only" />
+              <span class="icon">⚡</span>
+              <span class="label">전동 이동식 랙</span>
+              <span class="sub">공간 효율 최대화</span>
+            </label>
+            <label class="calc-option" data-group="rack" data-value="fixed">
+              <input type="radio" name="calc-rack" value="fixed" class="sr-only" />
+              <span class="icon">🔩</span>
+              <span class="label">고정식 랙</span>
+              <span class="sub">초기 비용 절감</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q3. 창고 환경 -->
+        <div class="calc-group mb-7">
+          <p class="font-black text-navy text-sm mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-orange-500 text-white text-xs flex items-center justify-center font-black">3</span>
+            창고 환경
+          </p>
+          <div class="grid grid-cols-2 gap-3" id="q-env">
+            <label class="calc-option" data-group="env" data-value="ambient">
+              <input type="radio" name="calc-env" value="ambient" class="sr-only" />
+              <span class="icon">🌡️</span>
+              <span class="label">상온</span>
+              <span class="sub">일반 보관</span>
+            </label>
+            <label class="calc-option" data-group="env" data-value="cold">
+              <input type="radio" name="calc-env" value="cold" class="sr-only" />
+              <span class="icon">❄️</span>
+              <span class="label">냉장 / 냉동</span>
+              <span class="sub">특수 재질 적용</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Q4. 예상 단수 -->
+        <div class="calc-group mb-8">
+          <p class="font-black text-navy text-sm mb-3 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-orange-500 text-white text-xs flex items-center justify-center font-black">4</span>
+            예상 단수
+          </p>
+          <div class="grid grid-cols-3 gap-3" id="q-level">
+            <label class="calc-option" data-group="level" data-value="two">
+              <input type="radio" name="calc-level" value="two" class="sr-only" />
+              <span class="icon">📦</span>
+              <span class="label">2단</span>
+              <span class="sub">낮은 층고</span>
+            </label>
+            <label class="calc-option" data-group="level" data-value="three">
+              <input type="radio" name="calc-level" value="three" class="sr-only" />
+              <span class="icon">📦📦</span>
+              <span class="label">3단</span>
+              <span class="sub">표준 층고</span>
+            </label>
+            <label class="calc-option" data-group="level" data-value="four">
+              <input type="radio" name="calc-level" value="four" class="sr-only" />
+              <span class="icon">🏢</span>
+              <span class="label">4단 이상</span>
+              <span class="sub">고층고 창고</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 계산 버튼 -->
+        <button onclick="calcQuote()" id="calc-btn"
+          class="w-full py-4 rounded-xl font-black text-white text-base tracking-wide transition-all duration-300"
+          style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%); box-shadow:0 4px 20px rgba(15,23,42,0.25);">
+          🔍 예상 견적 계산하기
+        </button>
+
+        <!-- 결과 영역 -->
+        <div id="calc-result" class="mt-6 hidden">
+          <div id="calc-result-inner" class="rounded-2xl overflow-hidden" style="border:2px solid #f97316;">
+
+            <!-- 상단 라벨 바 -->
+            <div class="px-5 py-3 text-center" style="background:#f97316;">
+              <p class="text-white font-black text-sm uppercase tracking-widest">📊 예상 견적 범위</p>
+            </div>
+
+            <!-- 선택 옵션 요약 -->
+            <div class="px-5 pt-4 pb-2 text-center" style="background:#fff7ed;">
+              <p class="text-orange-700 text-xs font-medium" id="calc-options-summary"></p>
+            </div>
+
+            <!-- 금액 메인 -->
+            <div class="px-5 py-6 text-center" style="background:#fff7ed;">
+              <p class="text-slate-500 text-xs mb-3">최소 견적</p>
+              <p id="calc-price-min"
+                class="font-black text-navy leading-none mb-1"
+                style="font-size:clamp(2rem,6vw,3rem); letter-spacing:-1px;"></p>
+
+              <div class="flex items-center justify-center gap-3 my-4">
+                <div style="height:2px; width:40px; background:#f97316; border-radius:2px;"></div>
+                <span class="text-orange-500 font-black text-sm">~ 최대</span>
+                <div style="height:2px; width:40px; background:#f97316; border-radius:2px;"></div>
+              </div>
+
+              <p id="calc-price-max"
+                class="font-black leading-none"
+                style="font-size:clamp(2rem,6vw,3rem); letter-spacing:-1px; color:#f97316;"></p>
+            </div>
+
+            <!-- 파렛트 수 -->
+            <div class="px-5 py-5 text-center border-t-2" style="background:#f8fafc; border-color:#fed7aa;">
+              <p class="text-slate-400 text-xs uppercase tracking-widest mb-2">예상 보관 파렛트 수</p>
+              <div class="flex items-center justify-center gap-2">
+                <span class="text-3xl font-black text-navy" id="calc-pallet-min"></span>
+                <span class="text-orange-400 font-black text-lg">~</span>
+                <span class="text-3xl font-black text-navy" id="calc-pallet-max"></span>
+                <span class="text-slate-500 font-bold text-base ml-1">파렛트</span>
+              </div>
+              <p class="text-slate-400 text-xs mt-2">기준: 1,100×1,100mm 표준 파렛트</p>
+            </div>
+
+            <!-- 하단 안내 + 버튼 -->
+            <div class="px-5 py-4 text-center" style="background:#0f172a;">
+              <p class="text-white/55 text-xs leading-relaxed mb-3">
+                ※ 현장 조건(층고·기둥 간격·바닥 상태 등)에 따라 실제 견적은 달라질 수 있습니다.
+              </p>
+              <button onclick="scrollToForm()"
+                style="background:#f97316; color:#fff; font-weight:800; font-size:0.9rem; padding:0.65rem 1.8rem; border-radius:8px; border:none; cursor:pointer; transition:background 0.2s;"
+                onmouseover="this.style.background='#ea6d0a'" onmouseout="this.style.background='#f97316'">
+                정확한 견적 문의하기 →
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /카드 -->
+
+    </div>
+  </div>
+</section>
+
+<!-- 계산기 스타일 -->
+<style>
+.calc-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 8px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  background: #fff;
+  text-align: center;
+  user-select: none;
+}
+.calc-option:hover { border-color: #f97316; background: #fff7ed; }
+.calc-option.selected { border-color: #0f172a; background: #0f172a; }
+.calc-option.selected .label { color: #fff; }
+.calc-option.selected .sub   { color: rgba(255,255,255,0.55); }
+.calc-option.selected .icon  { filter: grayscale(0); }
+.calc-option .icon  { font-size: 1.5rem; line-height: 1; }
+.calc-option .label { font-size: 0.82rem; font-weight: 700; color: #0f172a; line-height: 1.2; }
+.calc-option .sub   { font-size: 0.7rem; color: #94a3b8; line-height: 1; }
+
+/* 결과 등장 애니메이션 */
+@keyframes popIn {
+  0%   { opacity:0; transform:translateY(16px) scale(0.97); }
+  60%  { transform:translateY(-4px) scale(1.01); }
+  100% { opacity:1; transform:translateY(0) scale(1); }
+}
+.pop-in { animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+
+/* 숫자 카운트업 */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.count-anim { animation: countUp 0.4s ease forwards; }
+</style>
+
+<!-- ==============================
+     문의 폼 + 사이드 정보
+     ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+      <!-- 폼 (2/3) -->
+      <div class="lg:col-span-2">
+        <!-- 파일 첨부 안내 배너 -->
+        <div class="flex items-start gap-3 bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6">
+          <span class="text-orange-500 text-xl flex-shrink-0">📎</span>
+          <p class="text-orange-700 text-sm leading-relaxed">
+            <strong>도면이나 현장 사진은 열리는 메일 창에서 직접 첨부해 주세요.</strong><br/>
+            견적 정확도를 높이기 위해 현장 도면(CAD, PDF 등)이나 사진을 함께 보내주시면 더욱 빠른 답변이 가능합니다.
+          </p>
+        </div>
+
+        <form id="contact-form" onsubmit="sendEmail(event)" class="rk-card p-8" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+
+          <!-- 기본 정보 -->
+          <h3 class="font-black text-navy text-lg mb-5 pb-3 border-b border-slate-100">기본 정보</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+            <div class="form-group">
+              <label for="company">업체명 <span class="text-orange-500">*</span></label>
+              <input type="text" id="company" name="company" placeholder="(주)랙코리아" required />
+            </div>
+            <div class="form-group">
+              <label for="name">담당자명 <span class="text-orange-500">*</span></label>
+              <input type="text" id="name" name="name" placeholder="홍길동" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">연락처 <span class="text-orange-500">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required />
+            </div>
+            <div class="form-group">
+              <label for="email">이메일</label>
+              <input type="email" id="email" name="email" placeholder="example@company.com" />
+            </div>
+          </div>
+
+          <!-- 창고 정보 -->
+          <h3 class="font-black text-navy text-lg mb-5 pb-3 border-b border-slate-100 mt-4">창고 정보</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+            <div class="form-group">
+              <label for="size">창고 규모 (㎡ 또는 평)</label>
+              <input type="text" id="size" name="size" placeholder="예: 1,000㎡ / 300평" />
+            </div>
+            <div class="form-group">
+              <label for="environment">창고 환경</label>
+              <select id="environment" name="environment">
+                <option value="">선택해주세요</option>
+                <option value="상온">상온 (15~25℃)</option>
+                <option value="저온">저온 (0~10℃)</option>
+                <option value="냉장">냉장 (-2~5℃)</option>
+                <option value="냉동">냉동 (-18℃ 이하)</option>
+                <option value="극저온">극저온 (-25℃ 이하)</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="forklift">지게차 타입</label>
+              <select id="forklift" name="forklift">
+                <option value="">선택해주세요</option>
+                <option value="카운터밸런스 지게차">카운터밸런스 지게차</option>
+                <option value="리치 지게차">리치 지게차 (Reach Truck)</option>
+                <option value="전동 지게차">전동 지게차</option>
+                <option value="수동 핸드파렛트">수동 핸드파렛트</option>
+                <option value="VNA (Very Narrow Aisle)">VNA (Very Narrow Aisle)</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="floors">층수 (복층 여부)</label>
+              <input type="text" id="floors" name="floors" placeholder="예: 단층 / 2층 복층" />
+            </div>
+          </div>
+
+          <!-- 파렛트 규격 -->
+          <h3 class="font-black text-navy text-lg mb-5 pb-3 border-b border-slate-100 mt-4">파렛트 규격</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-4">
+            <div class="form-group">
+              <label for="pallet_w">가로 (mm)</label>
+              <input type="number" id="pallet_w" name="pallet_w" placeholder="1100" />
+            </div>
+            <div class="form-group">
+              <label for="pallet_d">세로 (mm)</label>
+              <input type="number" id="pallet_d" name="pallet_d" placeholder="1100" />
+            </div>
+            <div class="form-group">
+              <label for="pallet_h">높이 (mm)</label>
+              <input type="number" id="pallet_h" name="pallet_h" placeholder="1200" />
+            </div>
+            <div class="form-group">
+              <label for="pallet_kg">무게 (kg)</label>
+              <input type="number" id="pallet_kg" name="pallet_kg" placeholder="1000" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+            <div class="form-group">
+              <label for="levels">단수 (높이 방향 적재 단)</label>
+              <input type="text" id="levels" name="levels" placeholder="예: 3단" />
+            </div>
+            <div class="form-group">
+              <label for="rows">열수 (통로 방향 랙 열)</label>
+              <input type="text" id="rows" name="rows" placeholder="예: 10열" />
+            </div>
+          </div>
+
+          <!-- 추가 메모 -->
+          <div class="form-group mt-2">
+            <label for="memo">추가 요청사항</label>
+            <textarea id="memo" name="memo" placeholder="현장 특이사항, 납기 일정, 참고사항 등을 자유롭게 입력해 주세요."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit mt-2">
+            📧 견적 문의 메일 보내기
+          </button>
+
+          <p class="text-center text-slate-400 text-xs mt-3">
+            * 버튼 클릭 시 기본 이메일 앱이 열립니다. 도면·사진은 열리는 메일에 직접 첨부해 주세요.
+          </p>
+        </form>
+      </div>
+
+      <!-- 사이드: 연락처 정보 -->
+      <div class="space-y-5">
+        <div class="fade-up">
+          <h3 class="font-black text-navy text-lg mb-4">빠른 연락</h3>
+          <!-- [CUSTOMIZE] 실제 연락처 수정 -->
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+              <span class="text-2xl">📞</span>
+              <div>
+                <p class="font-bold text-navy text-sm">대표 전화</p>
+                <p class="text-slate-600 text-sm">031-351-3985</p>
+                <p class="text-slate-400 text-xs">평일 09:00 – 18:00</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+              <span class="text-2xl">✉️</span>
+              <div>
+                <p class="font-bold text-navy text-sm">이메일</p>
+                <p class="text-slate-600 text-sm">master@rackkorea.co.kr</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+              <span class="text-2xl">📍</span>
+              <div>
+                <p class="font-bold text-navy text-sm">주소</p>
+                <!-- [CUSTOMIZE] 실제 주소 입력 -->
+                <p class="text-slate-600 text-sm">경기도 화성시 만세구 장안면<br/>신촌길 60-19</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 소요 시간 안내 -->
+        <div class="rk-card p-5 fade-up border-l-4 border-orange-500" style="box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+          <h4 class="font-bold text-navy mb-2">견적 프로세스</h4>
+          <ol class="space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-orange-500 font-bold">1.</span> 문의 접수 (즉시)</li>
+            <li class="flex gap-2"><span class="text-orange-500 font-bold">2.</span> 담당자 확인 및 연락 (1~2 영업일)</li>
+            <li class="flex gap-2"><span class="text-orange-500 font-bold">3.</span> 현장 방문·도면 검토 (협의)</li>
+            <li class="flex gap-2"><span class="text-orange-500 font-bold">4.</span> 맞춤 견적서 제출 (3~5 영업일)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     고객 지원 서비스 카드 3개
+     ============================== -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">고객 지원 서비스</h2>
+      <p class="section-sub">구매 이후에도 랙코리아가 함께합니다</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-4xl">🔧</div>
+        <h3 class="font-bold text-navy text-lg mb-2">전담 A/S 서비스</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">설치 후에도 전담 A/S 팀이 신속하게 대응합니다. 연간 유지보수 계약으로 장비의 최상 상태를 유지하세요.</p>
+      </div>
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-4xl">📐</div>
+        <h3 class="font-bold text-navy text-lg mb-2">무료 현장 컨설팅</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">전문 엔지니어가 직접 현장을 방문하여 최적의 레이아웃과 랙 구성을 무료로 컨설팅해 드립니다.</p>
+      </div>
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-4xl">📦</div>
+        <h3 class="font-bold text-navy text-lg mb-2">부품 즉시 공급</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">주요 소모품·부품을 국내 재고로 보유하여 다운타임 없이 신속하게 교체·공급해 드립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 푸터 -->
+<footer>
+  <div class="footer-inner">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="footer-logo">RACK KOREA</div>
+        <p class="footer-info">이동식 랙 전문 제조·설치 기업</p>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">바로가기</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-orange-400 transition-colors">제품 소개</a></li>
+          <li><a href="portfolio.html" class="hover:text-orange-400 transition-colors">설치 사례</a></li>
+          <li><a href="contact.html" class="hover:text-orange-400 transition-colors">문의하기</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">연락처</p>
+        <p class="footer-info">Tel: 031-351-3985<br/>Email: master@rackkorea.co.kr</p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 랙코리아(Rack Korea). All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// =====================================================
+// ── 예상 견적 계산기 로직
+// [CUSTOMIZE] 아래 단가표와 가중치를 실제 영업 정책에
+//             맞게 조정하세요.
+// =====================================================
+
+// 1) 창고 규모별 기본 금액 범위 (단위: 만원)
+//    소규모일수록 평당 고정비 비율이 높아 단가가 높음
+const SIZE_BASE = {
+  small:  { min: 1500,  max: 4000,  label: '50평 미만' },
+  medium: { min: 4000,  max: 9000,  label: '50~100평' },
+  large:  { min: 8000,  max: 20000, label: '100평 이상' },
+};
+
+// 2) 랙 종류 가중치 (전동 이동식 = 기준 1.0)
+const RACK_MULT = {
+  mobile: { mult: 1.00, label: '전동 이동식 랙' },
+  fixed:  { mult: 0.55, label: '고정식 랙' },
+};
+
+// 3) 환경 가중치 (냉동은 특수 재질·방수 처리로 할증)
+const ENV_MULT = {
+  ambient: { mult: 1.00, label: '상온' },
+  cold:    { mult: 1.35, label: '냉장/냉동' },
+};
+
+// 4) 단수 가중치 (단수가 높을수록 구조 보강 필요)
+const LEVEL_MULT = {
+  two:   { mult: 1.00, label: '2단' },
+  three: { mult: 1.22, label: '3단' },
+  four:  { mult: 1.50, label: '4단 이상' },
+};
+
+// 계산기 선택 상태
+// 5) 창고 규모별 평수 범위 (평)
+// [CUSTOMIZE] 실제 영업 기준 평수 범위로 조정
+const SIZE_PYEONG = {
+  small:  { min: 20,  max: 50  },
+  medium: { min: 50,  max: 100 },
+  large:  { min: 100, max: 300 },
+};
+// 6) 랙 타입별 바닥 활용률 (통로 제외 실적재 비율)
+const RACK_UTIL = {
+  mobile: 0.82,  // 이동식: 통로 최소화
+  fixed:  0.45,  // 고정식: 고정 통로 다수
+};
+// 7) 단수별 실제 적재 단 수
+const LEVEL_COUNT = { two: 2, three: 3, four: 4 };
+const PALLET_AREA = 1.21;   // 1,100×1,100mm → 1.21㎡
+const PYEONG_M2   = 3.306;  // 1평 = 3.306㎡
+
+const calcState = { size: null, rack: null, env: null, level: null };
+// 마지막 계산 결과 (sendEmail에서 참조)
+let lastCalcResult = null;
+
+// ── 라디오 카드 선택 이벤트
+document.querySelectorAll('.calc-option').forEach(el => {
+  el.addEventListener('click', () => {
+    const group = el.dataset.group;
+    const value = el.dataset.value;
+    // 같은 그룹 초기화
+    document.querySelectorAll(`.calc-option[data-group="${group}"]`)
+      .forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    el.querySelector('input').checked = true;
+    calcState[group] = value;
+  });
+});
+
+// ── 계산 실행
+function calcQuote() {
+  const { size, rack, env, level } = calcState;
+  if (!size || !rack || !env || !level) {
+    // 미선택 항목 흔들기 효과
+    ['size','rack','env','level'].forEach(g => {
+      if (!calcState[g]) {
+        const el = document.querySelector(`#q-${g}`);
+        el.style.animation = 'none';
+        el.offsetHeight; // reflow
+        el.style.animation = 'shake 0.4s ease';
+      }
+    });
+    return;
+  }
+
+  const base   = SIZE_BASE[size];
+  const rMult  = RACK_MULT[rack].mult;
+  const eMult  = ENV_MULT[env].mult;
+  const lMult  = LEVEL_MULT[level].mult;
+
+  const totalMult = rMult * eMult * lMult;
+  const rawMin = Math.round(base.min * totalMult / 100) * 100;
+  const rawMax = Math.round(base.max * totalMult / 100) * 100;
+
+  // 파렛트 수 계산
+  const pyeong   = SIZE_PYEONG[size];
+  const util     = RACK_UTIL[rack];
+  const lvCount  = LEVEL_COUNT[level];
+  const palMin = Math.floor(pyeong.min * PYEONG_M2 * util / PALLET_AREA * lvCount);
+  const palMax = Math.floor(pyeong.max * PYEONG_M2 * util / PALLET_AREA * lvCount);
+
+  // 결과 저장 (mailto 연동용)
+  lastCalcResult = {
+    size:   SIZE_BASE[size].label,
+    rack:   RACK_MULT[rack].label,
+    env:    ENV_MULT[env].label,
+    level:  LEVEL_MULT[level].label,
+    min:    rawMin,
+    max:    rawMax,
+    palMin: palMin,
+    palMax: palMax,
+  };
+
+  // UI 업데이트
+  const resultBox = document.getElementById('calc-result');
+  const inner     = document.getElementById('calc-result-inner');
+  document.getElementById('calc-options-summary').textContent =
+    `${lastCalcResult.size} · ${lastCalcResult.rack} · ${lastCalcResult.env} · ${lastCalcResult.level}`;
+  document.getElementById('calc-price-min').textContent = `약 ${rawMin.toLocaleString()}만원`;
+  document.getElementById('calc-price-max').textContent = `${rawMax.toLocaleString()}만원`;
+  document.getElementById('calc-pallet-min').textContent = palMin.toLocaleString();
+  document.getElementById('calc-pallet-max').textContent = palMax.toLocaleString();
+
+  resultBox.classList.remove('hidden');
+  inner.classList.remove('pop-in');
+  void inner.offsetWidth; // reflow
+  inner.classList.add('pop-in');
+
+  // 결과로 스크롤
+  setTimeout(() => resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+// 폼으로 스크롤
+function scrollToForm() {
+  document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── shake 애니메이션 (미선택 경고)
+const shakeStyle = document.createElement('style');
+shakeStyle.textContent = `
+@keyframes shake {
+  0%,100%{ transform:translateX(0); }
+  20%{ transform:translateX(-6px); }
+  40%{ transform:translateX(6px); }
+  60%{ transform:translateX(-4px); }
+  80%{ transform:translateX(4px); }
+}`;
+document.head.appendChild(shakeStyle);
+
+// =====================================================
+// ── 폼 mailto 전송 (계산기 결과 자동 포함)
+// [CUSTOMIZE] 수신 이메일 주소: master@rackkorea.co.kr
+// =====================================================
+function sendEmail(event) {
+  event.preventDefault();
+  const f = event.target;
+  const get = id => (f.elements[id]?.value || '').trim() || '미입력';
+
+  // 계산기 결과 섹션 (계산을 안 했으면 생략)
+  const calcSection = lastCalcResult
+    ? [
+        '',
+        '■ 예상 견적 계산기 결과',
+        `창고 규모: ${lastCalcResult.size}`,
+        `랙 종류: ${lastCalcResult.rack}`,
+        `창고 환경: ${lastCalcResult.env}`,
+        `단수: ${lastCalcResult.level}`,
+        `예상 견적 범위: 약 ${lastCalcResult.min.toLocaleString()}만원 ~ ${lastCalcResult.max.toLocaleString()}만원`,
+        `예상 파렛트 수: ${lastCalcResult.palMin.toLocaleString()} ~ ${lastCalcResult.palMax.toLocaleString()}파렛트`,
+      ]
+    : [];
+
+  const subject = `[랙코리아 문의] ${get('company')} - 랙 설치 견적 문의`;
+  const body = [
+    '■ 기본 정보',
+    `업체명: ${get('company')}`,
+    `담당자: ${get('name')}`,
+    `연락처: ${get('phone')}`,
+    `이메일: ${get('email')}`,
+    ...calcSection,
+    '',
+    '■ 창고 정보',
+    `창고 규모: ${get('size')}`,
+    `창고 환경: ${get('environment')}`,
+    `지게차 타입: ${get('forklift')}`,
+    `층수: ${get('floors')}`,
+    '',
+    '■ 파렛트 규격',
+    `가로 x 세로 x 높이: ${get('pallet_w')} x ${get('pallet_d')} x ${get('pallet_h')} mm`,
+    `최대 무게: ${get('pallet_kg')} kg`,
+    `단수: ${get('levels')}`,
+    `열수: ${get('rows')}`,
+    '',
+    '■ 추가 요청사항',
+    get('memo'),
+    '',
+    '-- 도면이나 현장 사진이 있다면 이 메일에 직접 첨부하여 보내주세요 --',
+  ].join('\n');
+
+  window.location.href = `mailto:master@rackkorea.co.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+// ── 공통
+function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

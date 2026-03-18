@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Rack Korea</title>
+  <meta name="description" content="Learn how Rack Korea mobile racks work, compare electric vs. fixed racking, and explore our technology types and certifications." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { navy: '#0f172a', orange: '#f97316' } } }
+    }
+  </script>
+</head>
+<body>
+
+<nav id="gnb" class="scrolled">
+  <div class="gnb-inner">
+    <a href="index.html" class="gnb-logo flex items-center gap-2">
+      <img src="../assets/logo.png" alt="Rack Korea Logo" style="height:40px;" />
+    </a>
+    <ul class="gnb-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" style="color:#f97316;">Products</a></li>
+      <li><a href="portfolio.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="../about.html" class="lang-toggle">🌐 KR</a></li>
+      <li><a href="contact.html" class="btn-cta">Get a Free Quote</a></li>
+    </ul>
+    <button class="gnb-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="gnb-mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">Products</a>
+    <a href="portfolio.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn-cta text-center">Get a Free Quote</a>
+  </div>
+</nav>
+
+<div class="pt-24 pb-12 section-light text-center">
+  <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Product</p>
+  <h1 class="section-title">Products</h1>
+  <p class="text-slate-500">From how it works to technology types — everything you need to know</p>
+</div>
+
+<!-- How It Works -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-sub">Electric motors shift racks left and right, opening an aisle only where needed</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="relative rounded-xl overflow-hidden shadow-xl" id="principle-slider" style="min-height:360px;">
+        <div class="principle-slide" style="height:360px; display:block;">
+          <img src="../assets/photos/photo_004.png" alt="Installation overview" class="w-full h-full object-cover" />
+        </div>
+        <div class="principle-slide" style="height:360px; display:none;">
+          <img src="../assets/photos/photo_005.jpeg" alt="Mobile rack in operation" class="w-full h-full object-cover" />
+        </div>
+        <div class="principle-slide" style="height:360px; display:none;">
+          <img src="../assets/photos/photo_003.jpeg" alt="Mobile rack structure" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+          <button class="hero-dot active" onclick="goPSlide(0)"></button>
+          <button class="hero-dot" onclick="goPSlide(1)"></button>
+          <button class="hero-dot" onclick="goPSlide(2)"></button>
+        </div>
+      </div>
+
+      <div class="space-y-5">
+        <div class="rk-card p-6 flex gap-4 items-start fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div class="w-12 h-12 rounded-full bg-orange-500 text-white font-black text-xl flex items-center justify-center flex-shrink-0">1</div>
+          <div>
+            <h3 class="font-bold text-navy text-lg mb-1">Controller Operation</h3>
+            <p class="text-slate-500 text-sm">Select the desired aisle via the electric controller or smartphone app. Safety sensors activate automatically while the aisle opens.</p>
+          </div>
+        </div>
+        <div class="rk-card p-6 flex gap-4 items-start fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div class="w-12 h-12 rounded-full bg-orange-500 text-white font-black text-xl flex items-center justify-center flex-shrink-0">2</div>
+          <div>
+            <h3 class="font-bold text-navy text-lg mb-1">Automatic Rack Movement</h3>
+            <p class="text-slate-500 text-sm">The electric motor smoothly drives the racks along rails (or floor plates). Near-silent operation with support for loads of several tens of tonnes.</p>
+          </div>
+        </div>
+        <div class="rk-card p-6 flex gap-4 items-start fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+          <div class="w-12 h-12 rounded-full bg-orange-500 text-white font-black text-xl flex items-center justify-center flex-shrink-0">3</div>
+          <div>
+            <h3 class="font-bold text-navy text-lg mb-1">Forklift Entry & Operation</h3>
+            <p class="text-slate-500 text-sm">Once the aisle is fully open, a forklift enters to load or unload. Closing the aisle afterwards restores maximum storage density.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparison -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">Mobile Rack vs. Fixed Rack</h2>
+      <p class="section-sub">Hard numbers that prove the efficiency advantage</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="rk-card p-6 text-center fade-up border-t-4 border-orange-500">
+        <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Electric Mobile Rack</p>
+        <div class="text-5xl font-black text-navy mb-2">200%</div>
+        <p class="text-slate-500">Storage capacity vs. same floor area</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up border-t-4 border-slate-300">
+        <p class="text-slate-400 font-bold text-sm uppercase tracking-widest mb-2">Fixed Rack</p>
+        <div class="text-5xl font-black text-slate-400 mb-2">100%</div>
+        <p class="text-slate-400">Baseline storage capacity</p>
+      </div>
+    </div>
+
+    <div class="rk-card overflow-x-auto fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+      <table class="w-full text-sm">
+        <thead>
+          <tr style="background:#0f172a; color:#fff;">
+            <th class="p-4 text-left">Comparison</th>
+            <th class="p-4 text-center text-orange-400">Electric Mobile Rack</th>
+            <th class="p-4 text-center text-slate-300">Fixed Rack</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-slate-100">
+            <td class="p-4 font-medium">Storage Density</td>
+            <td class="p-4 text-center"><span class="text-orange-500 font-bold">Up to 200%</span></td>
+            <td class="p-4 text-center text-slate-400">100% (baseline)</td>
+          </tr>
+          <tr class="border-b border-slate-100 bg-slate-50">
+            <td class="p-4 font-medium">Number of Aisles</td>
+            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">1 (shared)</span></td>
+            <td class="p-4 text-center text-slate-400">N (fixed)</td>
+          </tr>
+          <tr class="border-b border-slate-100">
+            <td class="p-4 font-medium">Floor Space Utilization</td>
+            <td class="p-4 text-center"><span class="text-orange-500 font-bold">85%+</span></td>
+            <td class="p-4 text-center text-slate-400">40–50%</td>
+          </tr>
+          <tr class="border-b border-slate-100 bg-slate-50">
+            <td class="p-4 font-medium">Cold Storage Energy</td>
+            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">Up to 30% savings</span></td>
+            <td class="p-4 text-center text-slate-400">Baseline</td>
+          </tr>
+          <tr class="border-b border-slate-100">
+            <td class="p-4 font-medium">Initial Investment</td>
+            <td class="p-4 text-center text-slate-600">Higher (ROI 3–5 yrs)</td>
+            <td class="p-4 text-center text-slate-400">Lower</td>
+          </tr>
+          <tr class="bg-slate-50">
+            <td class="p-4 font-medium">Expansion / Relocation</td>
+            <td class="p-4 text-center"><span class="text-emerald-500 font-bold">Modular expansion</span></td>
+            <td class="p-4 text-center text-slate-400">Limited</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Technology Types -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">Technology Types</h2>
+      <p class="section-sub">Choose the right system for your site conditions</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="rk-card fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="rk-img" style="height:240px;">
+          <img src="../assets/photos/photo_005.jpeg" alt="Rail type mobile rack" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">RAIL TYPE</span>
+            <h3 class="font-bold text-navy text-xl">Rail Type</h3>
+          </div>
+          <p class="text-slate-500 text-sm mb-4 leading-relaxed">Racks travel along floor-embedded rails, delivering superior straight-line accuracy. Ideal for large-scale and cold-storage warehouses requiring high load capacity.</p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> Best for maximum load handling</li>
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> Optimized for cold/frozen storage</li>
+            <li class="flex gap-2"><span class="text-orange-500">✓</span> High travel precision</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rk-card fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="rk-img" style="height:240px;">
+          <img src="../assets/photos/photo_003.jpeg" alt="No-rail type mobile rack" class="w-full h-full object-cover" />
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="bg-navy text-white text-xs font-bold px-3 py-1 rounded-full">NO-RAIL TYPE</span>
+            <h3 class="font-bold text-navy text-xl">No-Rail Type</h3>
+          </div>
+          <p class="text-slate-500 text-sm mb-4 leading-relaxed">Installs directly onto existing floors with no civil works required. Shorter installation time and easy relocation make it popular for leased or medium-sized warehouses.</p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-navy font-bold">✓</span> No floor construction needed</li>
+            <li class="flex gap-2"><span class="text-navy font-bold">✓</span> Lower installation & relocation cost</li>
+            <li class="flex gap-2"><span class="text-navy font-bold">✓</span> Ideal for leased warehouses</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certification -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">Certifications & Patents</h2>
+      <p class="section-sub">Verified quality and technology you can trust</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="rk-card p-6 text-center fade-up" style="background:var(--bg-light); box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-full shadow text-4xl">🏅</div>
+        <h4 class="font-bold text-navy text-sm">KS Certified</h4>
+        <p class="text-slate-400 text-xs mt-1">Korean Industrial Standard</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="background:var(--bg-light); box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-full shadow text-4xl">📜</div>
+        <h4 class="font-bold text-navy text-sm">Registered Patent</h4>
+        <p class="text-slate-400 text-xs mt-1">Mobile Rack Structure</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="background:var(--bg-light); box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-full shadow text-4xl">🛡️</div>
+        <h4 class="font-bold text-navy text-sm">Safety Approval</h4>
+        <p class="text-slate-400 text-xs mt-1">Industrial Safety & Health Act</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="background:var(--bg-light); box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center bg-white rounded-full shadow text-4xl">🌐</div>
+        <h4 class="font-bold text-navy text-sm">ISO 9001</h4>
+        <p class="text-slate-400 text-xs mt-1">Quality Management System</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Quote CTA -->
+<section class="py-16" style="background:#0f172a;">
+  <div class="container">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 fade-up">
+      <div class="text-white">
+        <h3 class="text-2xl font-black mb-1">Get a Quote Tailored to Your Warehouse</h3>
+        <p class="text-white/60 text-sm">Our engineers will recommend the optimal solution for your site</p>
+      </div>
+      <a href="contact.html" class="btn-cta flex-shrink-0" style="font-size:1rem; padding:0.8rem 2.2rem; white-space:nowrap;">Request a Quote →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="footer-logo">RACK KOREA</div>
+        <p class="footer-info">Mobile Rack Manufacturer & Installer</p>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">Quick Links</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-orange-400 transition-colors">Products</a></li>
+          <li><a href="portfolio.html" class="hover:text-orange-400 transition-colors">Projects</a></li>
+          <li><a href="contact.html" class="hover:text-orange-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">Contact</p>
+        <p class="footer-info">Tel: 031-351-3985<br/>Email: master@rackkorea.co.kr</p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 Rack Korea Co., Ltd. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+const pSlides = document.querySelectorAll('.principle-slide');
+const pDots   = document.querySelectorAll('.hero-dot');
+let pIdx = 0;
+function goPSlide(n) {
+  pSlides[pIdx].style.display = 'none'; pDots[pIdx].classList.remove('active');
+  pIdx = n;
+  pSlides[pIdx].style.display = 'block'; pDots[pIdx].classList.add('active');
+}
+setInterval(() => goPSlide((pIdx + 1) % pSlides.length), 4000);
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

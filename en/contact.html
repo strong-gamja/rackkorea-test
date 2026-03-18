@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Rack Korea</title>
+  <meta name="description" content="Request a free mobile rack quote from Rack Korea. Our specialists will propose the best solution for your warehouse within 1–2 business days." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { navy: '#0f172a', orange: '#f97316' } } }
+    }
+  </script>
+</head>
+<body>
+
+<nav id="gnb" class="scrolled">
+  <div class="gnb-inner">
+    <a href="index.html" class="gnb-logo flex items-center gap-2">
+      <img src="../assets/logo.png" alt="Rack Korea Logo" style="height:40px;" />
+    </a>
+    <ul class="gnb-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Products</a></li>
+      <li><a href="portfolio.html">Projects</a></li>
+      <li><a href="contact.html" style="color:#f97316;">Contact</a></li>
+      <li><a href="../contact.html" class="lang-toggle">🌐 KR</a></li>
+      <li><a href="contact.html" class="btn-cta">Get a Free Quote</a></li>
+    </ul>
+    <button class="gnb-hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="gnb-mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">Products</a>
+    <a href="portfolio.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn-cta text-center">Get a Free Quote</a>
+  </div>
+</nav>
+
+<div class="pt-24 pb-12 section-light text-center">
+  <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Contact</p>
+  <h1 class="section-title">Quote & Inquiry</h1>
+  <p class="text-slate-500">Fill in the form below — our specialist will contact you within 1–2 business days</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+      <!-- Form -->
+      <div class="lg:col-span-2">
+        <div class="flex items-start gap-3 bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6">
+          <span class="text-orange-500 text-xl flex-shrink-0">📎</span>
+          <p class="text-orange-700 text-sm leading-relaxed">
+            <strong>Please attach drawings or site photos directly in the email window that opens.</strong><br/>
+            Including floor plans (CAD, PDF) or photos helps us provide a faster and more accurate quote.
+          </p>
+        </div>
+
+        <form id="contact-form" onsubmit="sendEmail(event)" class="rk-card p-8" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+
+          <h3 class="font-black text-navy text-lg mb-5 pb-3 border-b border-slate-100">Basic Information</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+            <div class="form-group">
+              <label for="company">Company Name <span class="text-orange-500">*</span></label>
+              <input type="text" id="company" name="company" placeholder="Rack Korea Co., Ltd." required />
+            </div>
+            <div class="form-group">
+              <label for="name">Contact Person <span class="text-orange-500">*</span></label>
+              <input type="text" id="name" name="name" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone <span class="text-orange-500">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+82-10-0000-0000" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="example@company.com" />
+            </div>
+          </div>
+
+          <h3 class="font-black text-navy text-lg mb-5 pb-3 border-b border-slate-100 mt-4">Warehouse Information</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+            <div class="form-group">
+              <label for="size">Warehouse Area (m² or pyeong)</label>
+              <input type="text" id="size" name="size" placeholder="e.g. 1,000 m²" />
+            </div>
+            <div class="form-group">
+              <label for="environment">Storage Environment</label>
+              <select id="environment" name="environment">
+                <option value="">Please select</option>
+                <option value="Ambient (15–25°C)">Ambient (15–25°C)</option>
+                <option value="Cool (0–10°C)">Cool (0–10°C)</option>
+                <option value="Chilled (-2–5°C)">Chilled (-2–5°C)</option>
+                <option value="Frozen (-18°C or below)">Frozen (-18°C or below)</option>
+                <option value="Ultra-frozen (-25°C or below)">Ultra-frozen (-25°C or below)</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="forklift">Forklift Type</label>
+              <select id="forklift" name="forklift">
+                <option value="">Please select</option>
+                <option value="Counterbalance Forklift">Counterbalance Forklift</option>
+                <option value="Reach Truck">Reach Truck</option>
+                <option value="Electric Pallet Truck">Electric Pallet Truck</option>
+                <option value="Manual Pallet Jack">Manual Pallet Jack</option>
+                <option value="VNA (Very Narrow Aisle)">VNA (Very Narrow Aisle)</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="floors">Floor Configuration</label>
+              <input type="text" id="floors" name="floors" placeholder="e.g. Single / Two-storey mezzanine" />
+            </div>
+          </div>
+
+          <h3 class="font-black text-navy text-lg mb-5 pb-3 border-b border-slate-100 mt-4">Pallet Specifications</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-4">
+            <div class="form-group">
+              <label for="pallet_w">Width (mm)</label>
+              <input type="number" id="pallet_w" name="pallet_w" placeholder="1100" />
+            </div>
+            <div class="form-group">
+              <label for="pallet_d">Depth (mm)</label>
+              <input type="number" id="pallet_d" name="pallet_d" placeholder="1100" />
+            </div>
+            <div class="form-group">
+              <label for="pallet_h">Height (mm)</label>
+              <input type="number" id="pallet_h" name="pallet_h" placeholder="1200" />
+            </div>
+            <div class="form-group">
+              <label for="pallet_kg">Weight (kg)</label>
+              <input type="number" id="pallet_kg" name="pallet_kg" placeholder="1000" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+            <div class="form-group">
+              <label for="levels">Rack Levels (vertical)</label>
+              <input type="text" id="levels" name="levels" placeholder="e.g. 3 levels" />
+            </div>
+            <div class="form-group">
+              <label for="rows">Rack Rows (aisle direction)</label>
+              <input type="text" id="rows" name="rows" placeholder="e.g. 10 rows" />
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label for="memo">Additional Requirements</label>
+            <textarea id="memo" name="memo" placeholder="Site specifics, delivery schedule, any other notes…"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit mt-2">
+            📧 Send Quote Request
+          </button>
+          <p class="text-center text-slate-400 text-xs mt-3">
+            * Clicking the button opens your default email app. Please attach drawings/photos there.
+          </p>
+        </form>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-5">
+        <div class="fade-up">
+          <h3 class="font-black text-navy text-lg mb-4">Get in Touch</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+              <span class="text-2xl">📞</span>
+              <div>
+                <p class="font-bold text-navy text-sm">Main Office</p>
+                <p class="text-slate-600 text-sm">031-351-3985</p>
+                <p class="text-slate-400 text-xs">Mon–Fri 09:00 – 18:00 KST</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+              <span class="text-2xl">✉️</span>
+              <div>
+                <p class="font-bold text-navy text-sm">Email</p>
+                <p class="text-slate-600 text-sm">master@rackkorea.co.kr</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+              <span class="text-2xl">📍</span>
+              <div>
+                <p class="font-bold text-navy text-sm">Address</p>
+                <p class="text-slate-600 text-sm">60-19 Sinchon-gil, Jangan-myeon,<br/>Hwaseong-si, Gyeonggi-do, Korea</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rk-card p-5 fade-up border-l-4 border-orange-500" style="box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+          <h4 class="font-bold text-navy mb-2">Quote Process</h4>
+          <ol class="space-y-2 text-sm text-slate-600">
+            <li class="flex gap-2"><span class="text-orange-500 font-bold">1.</span> Inquiry received (immediately)</li>
+            <li class="flex gap-2"><span class="text-orange-500 font-bold">2.</span> Specialist follow-up (1–2 business days)</li>
+            <li class="flex gap-2"><span class="text-orange-500 font-bold">3.</span> Site visit / drawing review (by arrangement)</li>
+            <li class="flex gap-2"><span class="text-orange-500 font-bold">4.</span> Custom quote submitted (3–5 business days)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Support Cards -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <h2 class="section-title">Customer Support Services</h2>
+      <p class="section-sub">Rack Korea stays with you after installation</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-4xl">🔧</div>
+        <h3 class="font-bold text-navy text-lg mb-2">Dedicated After-Sales Service</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">A dedicated A/S team responds swiftly after installation. Annual maintenance contracts keep your equipment in peak condition.</p>
+      </div>
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-4xl">📐</div>
+        <h3 class="font-bold text-navy text-lg mb-2">Free On-Site Consulting</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Our engineers visit your site to provide a free layout and rack configuration consultation tailored to your exact needs.</p>
+      </div>
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-4xl">📦</div>
+        <h3 class="font-bold text-navy text-lg mb-2">Immediate Parts Supply</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Key consumables and spare parts are kept in domestic stock for rapid replacement with minimal downtime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="footer-logo">RACK KOREA</div>
+        <p class="footer-info">Mobile Rack Manufacturer & Installer</p>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">Quick Links</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-orange-400 transition-colors">Products</a></li>
+          <li><a href="portfolio.html" class="hover:text-orange-400 transition-colors">Projects</a></li>
+          <li><a href="contact.html" class="hover:text-orange-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">Contact</p>
+        <p class="footer-info">Tel: 031-351-3985<br/>Email: master@rackkorea.co.kr<br/>
+        60-19 Sinchon-gil, Jangan-myeon,<br/>Hwaseong-si, Gyeonggi-do, Korea</p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 Rack Korea Co., Ltd. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function sendEmail(event) {
+  event.preventDefault();
+  const f = event.target;
+  const get = id => (f.elements[id]?.value || '').trim() || 'N/A';
+
+  const subject = `[Rack Korea Inquiry] ${get('company')} – Mobile Rack Quote Request`;
+  const body = [
+    '■ Basic Information',
+    `Company: ${get('company')}`,
+    `Contact: ${get('name')}`,
+    `Phone: ${get('phone')}`,
+    `Email: ${get('email')}`,
+    '',
+    '■ Warehouse Information',
+    `Area: ${get('size')}`,
+    `Environment: ${get('environment')}`,
+    `Forklift Type: ${get('forklift')}`,
+    `Floor Configuration: ${get('floors')}`,
+    '',
+    '■ Pallet Specifications',
+    `W × D × H: ${get('pallet_w')} × ${get('pallet_d')} × ${get('pallet_h')} mm`,
+    `Max Weight: ${get('pallet_kg')} kg`,
+    `Rack Levels: ${get('levels')}`,
+    `Rack Rows: ${get('rows')}`,
+    '',
+    '■ Additional Requirements',
+    get('memo'),
+    '',
+    '-- Please attach drawings or site photos to this email --',
+  ].join('\n');
+
+  window.location.href = `mailto:master@rackkorea.co.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rack Korea | Mobile Rack Specialists</title>
+  <meta name="description" content="Rack Korea specializes in mobile rack systems that maximize warehouse storage capacity. Double your storage in the same footprint." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../style.css" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { navy: '#0f172a', orange: '#f97316' } } }
+    }
+  </script>
+</head>
+<body>
+
+<!-- GNB -->
+<nav id="gnb" class="transparent">
+  <div class="gnb-inner">
+    <a href="index.html" class="gnb-logo flex items-center gap-2">
+      <img src="../assets/logo.png" alt="Rack Korea Logo" style="height:40px;" />
+    </a>
+    <ul class="gnb-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Products</a></li>
+      <li><a href="portfolio.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li>
+        <a href="../index.html" class="lang-toggle">🌐 KR</a>
+      </li>
+      <li><a href="contact.html" class="btn-cta">Get a Free Quote</a></li>
+    </ul>
+    <button class="gnb-hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="gnb-mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">Products</a>
+    <a href="portfolio.html">Projects</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn-cta text-center">Get a Free Quote</a>
+  </div>
+</nav>
+
+<!-- Hero Slider -->
+<section class="hero-slider" id="hero">
+  <div class="hero-slide active">
+    <img src="../assets/photos/photo_004.png" alt="Rack Korea installation site" />
+  </div>
+  <div class="hero-slide">
+    <img src="../assets/photos/photo_005.jpeg" alt="Mobile rack front view" />
+  </div>
+  <div class="hero-slide">
+    <img src="../assets/photos/photo_003.jpeg" alt="Mobile rack 3D rendering" />
+  </div>
+
+  <div class="hero-overlay">
+    <div class="hero-text fade-up visible">
+      <h1>Space is Your<br /><span style="color:#f97316;">Competitive Edge</span></h1>
+      <p>Same footprint, up to 2× the storage capacity — Rack Korea's smart mobile rack solution</p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="contact.html" class="btn-cta" style="font-size:1rem; padding:0.75rem 2rem;">Request a Free Quote</a>
+        <a href="about.html" style="padding:0.75rem 2rem; border:2px solid rgba(255,255,255,0.6); border-radius:6px; color:#fff; font-weight:700; font-size:1rem; transition:all 0.3s;">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-dots" id="hero-dots">
+    <button class="hero-dot active" onclick="goSlide(0)"></button>
+    <button class="hero-dot" onclick="goSlide(1)"></button>
+    <button class="hero-dot" onclick="goSlide(2)"></button>
+  </div>
+</section>
+
+<!-- Space Maximization -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="relative rounded-xl overflow-hidden shadow-xl" id="space-slider" style="min-height:380px;">
+        <div class="space-slide active rk-img" style="height:380px;">
+          <img src="../assets/photos/photo_005.jpeg" alt="Mobile rack overview" class="w-full h-full object-cover" />
+        </div>
+        <div class="space-slide rk-img" style="height:380px; display:none;">
+          <img src="../assets/photos/photo_004.png" alt="Installation site interior" class="w-full h-full object-cover" />
+        </div>
+        <div class="space-slide rk-img" style="height:380px; display:none;">
+          <img src="../assets/photos/photo_003.jpeg" alt="Mobile rack 3D" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+          <div class="space-dot w-2 h-2 rounded-full bg-orange-500 cursor-pointer" onclick="goSpaceSlide(0)"></div>
+          <div class="space-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goSpaceSlide(1)"></div>
+          <div class="space-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goSpaceSlide(2)"></div>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Space Maximization</p>
+        <h2 class="section-title mb-4">Same Warehouse,<br /><span class="accent-line">2× the Capacity</span></h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          Rack Korea's mobile rack system eliminates unnecessary aisles,<br class="hidden md:block"/>
+          delivering up to <strong>200%</strong> storage capacity in the same floor area.<br/>
+          Compatible with cold storage, ambient, and automated warehouses.
+        </p>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="kpi-card fade-up">
+            <div class="kpi-num">+200%</div>
+            <div class="kpi-label">Storage Capacity</div>
+          </div>
+          <div class="kpi-card fade-up">
+            <div class="kpi-num">-40%</div>
+            <div class="kpi-label">Logistics Cost</div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-cta inline-block">Request a Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Mobile Rack -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Why Mobile Rack</p>
+      <h2 class="section-title">Why Choose Mobile Rack?</h2>
+      <p class="section-sub">Superior efficiency over fixed racking — proven safety</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="rk-card p-6 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-3xl">📦</div>
+        <div class="inline-block bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">Space Cost Savings</div>
+        <h3 class="font-bold text-navy mb-2">Cut Warehouse Rent by Half</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Achieve the same storage volume in half the floor space by eliminating fixed aisles</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-3xl">🔒</div>
+        <div class="inline-block bg-navy text-white text-xs font-bold px-3 py-1 rounded-full mb-3">Safety Certified</div>
+        <h3 class="font-bold text-navy mb-2">Multi-Layer Safety Systems</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Anti-fall locks, collision sensors, and emergency stop ensure safe operation at all times</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-3xl">❄️</div>
+        <div class="inline-block bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">Cold Storage Specialist</div>
+        <h3 class="font-bold text-navy mb-2">Up to 30% Energy Savings</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Higher storage density reduces the cooling volume, cutting electricity costs by up to 30%</p>
+      </div>
+      <div class="rk-card p-6 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-3xl">⚙️</div>
+        <div class="inline-block bg-slate-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">Custom Design</div>
+        <h3 class="font-bold text-navy mb-2">Tailored to Your Site</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Rail or no-rail, electric or manual — we design the optimal solution for your exact conditions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Media Center -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Media Center</p>
+      <h2 class="section-title">Rack Korea Media</h2>
+      <p class="section-sub">See our mobile rack solutions in action</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <a href="https://youtu.be/hEt7ZSBKqSs?si=XO83Ir8mRW3N9k8u" target="_blank" rel="noopener" class="rk-card block group">
+        <div class="rk-img relative" style="height:200px;">
+          <img src="https://img.youtube.com/vi/hEt7ZSBKqSs/hqdefault.jpg" alt="Rack Korea YouTube" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all">
+            <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
+              <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold text-red-500 uppercase tracking-widest">YouTube</span>
+          <h3 class="font-bold text-navy mt-1 text-base">Product Introduction Video</h3>
+          <p class="text-slate-500 text-sm mt-1">Watch our mobile rack solution in full detail</p>
+        </div>
+      </a>
+
+      <a href="https://youtube.com/shorts/2jipvvDY1IM?si=msw8DdQ1ttGw0Mpg" target="_blank" rel="noopener" class="rk-card block group">
+        <div class="rk-img relative" style="height:200px;">
+          <img src="https://img.youtube.com/vi/2jipvvDY1IM/hqdefault.jpg" alt="Rack Korea Shorts" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all">
+            <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
+              <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="absolute top-3 left-3 bg-black/60 text-white text-xs font-bold px-2 py-0.5 rounded">SHORTS</div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold text-red-500 uppercase tracking-widest">YouTube Shorts</span>
+          <h3 class="font-bold text-navy mt-1 text-base">60-Second Mobile Rack Summary</h3>
+          <p class="text-slate-500 text-sm mt-1">The key points, fast</p>
+        </div>
+      </a>
+
+      <a href="https://blog.naver.com/rackkorea_official/224204057976" target="_blank" rel="noopener" class="rk-card block group">
+        <div class="rk-img relative bg-slate-100" style="height:200px;">
+          <img src="../assets/photos/photo_004.png" alt="Rack Korea Blog" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center justify-center bg-green-800/30 group-hover:bg-green-800/45 transition-all">
+            <div class="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold text-green-600 uppercase tracking-widest">Blog</span>
+          <h3 class="font-bold text-navy mt-1 text-base">Mobile Rack Installation Guide</h3>
+          <p class="text-slate-500 text-sm mt-1">Case studies and cost analysis in detail</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="py-20" style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);">
+  <div class="container text-center text-white fade-up">
+    <h2 class="text-3xl font-black mb-4">Maximize Your Warehouse Efficiency — Today</h2>
+    <p class="text-white/70 mb-8">Our specialists will propose the best solution for your facility</p>
+    <a href="contact.html" class="btn-cta inline-block" style="font-size:1.05rem; padding:0.85rem 2.5rem;">Request a Free Quote →</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="footer-logo">RACK KOREA</div>
+        <p class="footer-info">Mobile Rack Manufacturer & Installer<br/>B2B Warehouse Solutions</p>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">Quick Links</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-orange-400 transition-colors">Products</a></li>
+          <li><a href="portfolio.html" class="hover:text-orange-400 transition-colors">Projects</a></li>
+          <li><a href="contact.html" class="hover:text-orange-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">Contact</p>
+        <p class="footer-info">
+          Tel: 031-351-3985<br/>
+          Email: master@rackkorea.co.kr<br/>
+          60-19 Sinchon-gil, Jangan-myeon,<br/>Hwaseong-si, Gyeonggi-do, Korea
+        </p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 Rack Korea Co., Ltd. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const gnb = document.getElementById('gnb');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) { gnb.classList.remove('transparent'); gnb.classList.add('scrolled'); }
+  else { gnb.classList.remove('scrolled'); gnb.classList.add('transparent'); }
+});
+function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('open'); }
+
+// Hero Slider
+const heroSlides = document.querySelectorAll('.hero-slide');
+const heroDots   = document.querySelectorAll('.hero-dot');
+let heroIdx = 0;
+function goSlide(n) {
+  heroSlides[heroIdx].classList.remove('active'); heroDots[heroIdx].classList.remove('active');
+  heroIdx = n;
+  heroSlides[heroIdx].classList.add('active'); heroDots[heroIdx].classList.add('active');
+}
+setInterval(() => goSlide((heroIdx + 1) % heroSlides.length), 5000);
+
+// Space Slider
+const spaceEl = document.getElementById('space-slider');
+const spaceSlides = document.querySelectorAll('.space-slide');
+const spaceDots   = document.querySelectorAll('.space-dot');
+let spaceIdx = 0, spaceTimer;
+function goSpaceSlide(n) {
+  spaceSlides[spaceIdx].style.display = 'none';
+  spaceDots[spaceIdx].classList.replace('bg-orange-500','bg-white/50');
+  spaceIdx = n;
+  spaceSlides[spaceIdx].style.display = 'block';
+  spaceDots[spaceIdx].classList.replace('bg-white/50','bg-orange-500');
+}
+spaceTimer = setInterval(() => goSpaceSlide((spaceIdx + 1) % spaceSlides.length), 3500);
+spaceEl.addEventListener('mouseenter', () => clearInterval(spaceTimer));
+spaceEl.addEventListener('mouseleave', () => { spaceTimer = setInterval(() => goSpaceSlide((spaceIdx + 1) % spaceSlides.length), 3500); });
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

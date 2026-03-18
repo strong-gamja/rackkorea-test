@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>랙코리아 | 이동식 랙 전문기업</title>
+  <meta name="description" content="랙코리아는 이동식 랙(Mobile Rack) 전문 제조·설치 기업입니다. 창고 공간 효율을 극대화하세요." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 공통 스타일 -->
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { navy: '#0f172a', orange: '#f97316' } } }
+    }
+  </script>
+</head>
+<body>
+
+<!-- ==============================
+     네비게이션 (GNB)
+     ============================== -->
+<nav id="gnb" class="transparent">
+  <div class="gnb-inner">
+    <a href="index.html" class="gnb-logo flex items-center gap-2">
+      <img src="assets/logo.png" alt="랙코리아 로고" style="height:40px;" />
+    </a>
+
+    <ul class="gnb-menu">
+      <li><a href="index.html">홈</a></li>
+      <li><a href="about.html">제품 소개</a></li>
+      <li><a href="portfolio.html">설치 사례</a></li>
+      <li><a href="contact.html">문의하기</a></li>
+      <li>
+        <a href="en/index.html" class="lang-toggle" aria-label="언어 전환">
+          🌐 EN
+        </a>
+      </li>
+      <li><a href="contact.html" class="btn-cta">무료 견적 받기</a></li>
+    </ul>
+
+    <button class="gnb-hamburger" onclick="toggleMobileMenu()" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="gnb-mobile-menu" id="mobile-menu">
+    <a href="index.html">홈</a>
+    <a href="about.html">제품 소개</a>
+    <a href="portfolio.html">설치 사례</a>
+    <a href="contact.html">문의하기</a>
+    <a href="contact.html" class="btn-cta text-center">무료 견적 받기</a>
+  </div>
+</nav>
+
+<!-- ==============================
+     Hero 슬라이더
+     [CUSTOMIZE] 슬라이드 이미지·텍스트 수정
+     ============================== -->
+<section class="hero-slider" id="hero">
+  <!-- Slide 1 -->
+  <div class="hero-slide active">
+    <img src="assets/photos/photo_004.png" alt="랙코리아 설치 현장" />
+  </div>
+  <!-- Slide 2 -->
+  <div class="hero-slide">
+    <img src="assets/photos/photo_005.jpeg" alt="이동식 랙 정면" />
+  </div>
+  <!-- Slide 3 -->
+  <div class="hero-slide">
+    <img src="assets/photos/photo_003.jpeg" alt="이동식 랙 3D 렌더링" />
+  </div>
+
+  <div class="hero-overlay">
+    <div class="hero-text fade-up visible">
+      <h1>공간이 곧 경쟁력입니다<br /><span style="color:#f97316;">이동식 랙</span>으로 물류를 혁신하세요</h1>
+      <p>같은 면적, 최대 2배의 보관 용량 — 랙코리아의 스마트 솔루션</p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="contact.html" class="btn-cta" style="font-size:1rem; padding:0.75rem 2rem;">무료 견적 문의</a>
+        <a href="about.html" style="padding:0.75rem 2rem; border:2px solid rgba(255,255,255,0.6); border-radius:6px; color:#fff; font-weight:700; font-size:1rem; transition:all 0.3s;">제품 알아보기</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-dots" id="hero-dots">
+    <button class="hero-dot active" onclick="goSlide(0)"></button>
+    <button class="hero-dot" onclick="goSlide(1)"></button>
+    <button class="hero-dot" onclick="goSlide(2)"></button>
+  </div>
+</section>
+
+<!-- ==============================
+     Space Maximization 섹션
+     ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- 좌: 이미지 슬라이더 -->
+      <div class="relative rounded-xl overflow-hidden shadow-xl" id="space-slider" style="min-height:380px;">
+        <div class="space-slide active rk-img" style="height:380px;">
+          <img src="assets/photos/photo_005.jpeg" alt="이동식 랙 전경" class="w-full h-full object-cover" />
+        </div>
+        <div class="space-slide rk-img" style="height:380px; display:none;">
+          <img src="assets/photos/photo_004.png" alt="설치 현장 내부" class="w-full h-full object-cover" />
+        </div>
+        <div class="space-slide rk-img" style="height:380px; display:none;">
+          <img src="assets/photos/photo_003.jpeg" alt="이동식 랙 3D" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+          <div class="space-dot w-2 h-2 rounded-full bg-orange-500 cursor-pointer" onclick="goSpaceSlide(0)"></div>
+          <div class="space-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goSpaceSlide(1)"></div>
+          <div class="space-dot w-2 h-2 rounded-full bg-white/50 cursor-pointer" onclick="goSpaceSlide(2)"></div>
+        </div>
+      </div>
+
+      <!-- 우: 설명 + KPI -->
+      <div class="fade-up">
+        <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Space Maximization</p>
+        <h2 class="section-title mb-4">같은 창고, <span class="accent-line">2배의 공간</span></h2>
+        <p class="text-slate-600 mb-6 leading-relaxed">
+          랙코리아 이동식 랙은 고정식 랙 대비 통로를 최소화하여<br class="hidden md:block"/>
+          동일 면적 내 최대 <strong>200%</strong>의 보관 용량을 실현합니다.<br/>
+          냉동창고·일반창고·자동화 창고 모두 적용 가능합니다.
+        </p>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="kpi-card fade-up">
+            <div class="kpi-num">+200%</div>
+            <div class="kpi-label">보관 용량 증가</div>
+          </div>
+          <div class="kpi-card fade-up">
+            <div class="kpi-num">-40%</div>
+            <div class="kpi-label">물류비용 절감</div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-cta inline-block">지금 견적 문의하기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     WHY MOBILE RACK 섹션
+     ============================== -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Why Mobile Rack</p>
+      <h2 class="section-title">이동식 랙을 선택해야 하는 이유</h2>
+      <p class="section-sub">고정식 대비 압도적인 효율, 검증된 안전성</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="rk-card p-6 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-3xl">📦</div>
+        <div class="inline-block bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">공간 비용 절감</div>
+        <h3 class="font-bold text-navy mb-2" style="font-size:clamp(0.95rem,2vw,1.05rem);">창고 임대비 최대 절반</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">통로를 없애 동일 보관량을 절반 면적에서 달성, 임대비 대폭 절감</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="rk-card p-6 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-3xl">🔒</div>
+        <div class="inline-block bg-navy text-white text-xs font-bold px-3 py-1 rounded-full mb-3">안전 인증</div>
+        <h3 class="font-bold text-navy mb-2" style="font-size:clamp(0.95rem,2vw,1.05rem);">다중 안전장치 내장</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">낙하 방지 잠금장치, 충돌 감지 센서, 비상정지 기능으로 안전 운용</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="rk-card p-6 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-3xl">❄️</div>
+        <div class="inline-block bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">냉동·냉장 특화</div>
+        <h3 class="font-bold text-navy mb-2" style="font-size:clamp(0.95rem,2vw,1.05rem);">냉동창고 에너지 절감</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">보관 밀도를 높여 냉각 용적을 줄이고 전기료 최대 30% 절약</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="rk-card p-6 text-center fade-up" style="box-shadow:0 2px 16px rgba(0,0,0,0.07);">
+        <div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4 text-3xl">⚙️</div>
+        <div class="inline-block bg-slate-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3">맞춤 설계</div>
+        <h3 class="font-bold text-navy mb-2" style="font-size:clamp(0.95rem,2vw,1.05rem);">현장 맞춤 커스터마이즈</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">레일·노레일, 전동·수동 등 현장 조건에 최적화된 설계 제공</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     비용 절감 & ROI 데이터
+     ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Cost Savings & ROI</p>
+      <h2 class="section-title">숫자로 증명하는 비용 절감</h2>
+      <p class="section-sub">이동식 랙 도입은 비용이 아닌 <strong>투자</strong>입니다</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <!-- KPI 1 -->
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08); border-top:4px solid #f97316;">
+        <div class="text-5xl mb-3">🏢</div>
+        <p class="text-orange-500 font-bold text-xs uppercase tracking-widest mb-1">임대료 방어</p>
+        <p class="font-black text-navy leading-none mb-2" style="font-size:clamp(2.2rem,5vw,3rem);">-50%</p>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          <strong class="text-navy">외부 창고 임대료 방어</strong><br/>
+          동일 면적에 2배 보관량 달성으로 추가 창고 계약 불필요
+        </p>
+      </div>
+      <!-- KPI 2 -->
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08); border-top:4px solid #f97316;">
+        <div class="text-5xl mb-3">❄️</div>
+        <p class="text-orange-500 font-bold text-xs uppercase tracking-widest mb-1">전기세 절감</p>
+        <p class="font-black text-navy leading-none mb-2" style="font-size:clamp(2.2rem,5vw,3rem);">-30%</p>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          <strong class="text-navy">냉동창고 전기료 획기적 절감</strong><br/>
+          빈 공간 최소화로 냉각 용적 축소 → 월 수백만 원 전기세 절약
+        </p>
+      </div>
+      <!-- KPI 3 -->
+      <div class="rk-card p-7 text-center fade-up" style="box-shadow:0 4px 24px rgba(0,0,0,0.08); border-top:4px solid #f97316;">
+        <div class="text-5xl mb-3">📈</div>
+        <p class="text-orange-500 font-bold text-xs uppercase tracking-widest mb-1">ROI 회수</p>
+        <p class="font-black text-navy leading-none mb-2" style="font-size:clamp(2.2rem,5vw,3rem);">3~5년</p>
+        <p class="text-slate-500 text-sm leading-relaxed">
+          <strong class="text-navy">투자금 완전 회수</strong><br/>
+          절감된 임대료·전기료 누적으로 3~5년 내 ROI 달성 사례 다수
+        </p>
+      </div>
+    </div>
+
+    <!-- 상세 설명 바 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 fade-up">
+      <div class="flex gap-4 p-5 rounded-xl items-start" style="background:#fff7ed; border:1px solid #fed7aa;">
+        <div class="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center flex-shrink-0 text-xl font-black">💰</div>
+        <div>
+          <p class="font-black text-navy mb-1">외부 창고 임대료 방어 효과</p>
+          <p class="text-slate-600 text-sm leading-relaxed">100평 기준 이동식 랙 설치 시, 기존 대비 약 50평 분량의 추가 보관 공간 확보. 연간 수천만 원의 외부 창고 임대 계약을 해지하거나 방어할 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="flex gap-4 p-5 rounded-xl items-start" style="background:#eff6ff; border:1px solid #bfdbfe;">
+        <div class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 text-xl font-black">⚡</div>
+        <div>
+          <p class="font-black text-navy mb-1">냉동창고 냉방 운영비 절감</p>
+          <p class="text-slate-600 text-sm leading-relaxed">이동식 랙으로 보관 밀도를 높이면 냉각해야 할 빈 공간이 줄어듭니다. 월 전기료 수백만 원 절감이 실제 고객사에서 검증된 효과입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     Media Center 섹션
+     [CUSTOMIZE] 유튜브·쇼츠·블로그 링크 수정
+     ============================== -->
+<section class="section">
+  <div class="container">
+    <div class="text-center mb-12 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">Media Center</p>
+      <h2 class="section-title">랙코리아 미디어</h2>
+      <p class="section-sub">영상과 콘텐츠로 이동식 랙의 모든 것을 확인하세요</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- 유튜브 영상 -->
+      <a href="https://youtu.be/hEt7ZSBKqSs?si=XO83Ir8mRW3N9k8u" target="_blank" rel="noopener"
+         class="rk-card block group">
+        <div class="rk-img relative" style="height:200px;">
+          <img src="https://img.youtube.com/vi/hEt7ZSBKqSs/hqdefault.jpg" alt="랙코리아 유튜브 영상" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all">
+            <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
+              <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold text-red-500 uppercase tracking-widest">YouTube</span>
+          <h3 class="font-bold text-navy mt-1 text-base">이동식 랙 제품 소개 영상</h3>
+          <p class="text-slate-500 text-sm mt-1">랙코리아 모바일 랙 솔루션을 영상으로 확인하세요</p>
+        </div>
+      </a>
+
+      <!-- 유튜브 쇼츠 -->
+      <a href="https://youtube.com/shorts/2jipvvDY1IM?si=msw8DdQ1ttGw0Mpg" target="_blank" rel="noopener"
+         class="rk-card block group">
+        <div class="rk-img relative" style="height:200px;">
+          <img src="https://img.youtube.com/vi/2jipvvDY1IM/hqdefault.jpg" alt="랙코리아 쇼츠" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-all">
+            <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center">
+              <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="absolute top-3 left-3 bg-black/60 text-white text-xs font-bold px-2 py-0.5 rounded">SHORTS</div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold text-red-500 uppercase tracking-widest">YouTube Shorts</span>
+          <h3 class="font-bold text-navy mt-1 text-base">모바일 랙 60초 핵심 요약</h3>
+          <p class="text-slate-500 text-sm mt-1">짧은 영상으로 핵심만 빠르게 파악하세요</p>
+        </div>
+      </a>
+
+      <!-- 블로그 -->
+      <a href="https://blog.naver.com/rackkorea_official/224204057976" target="_blank" rel="noopener"
+         class="rk-card block group">
+        <div class="rk-img relative bg-slate-100" style="height:200px;">
+          <img src="https://placehold.co/600x200/f8fafc/0f172a?text=랙코리아+블로그" alt="랙코리아 블로그" class="w-full h-full object-cover" />
+          <div class="absolute inset-0 flex items-center justify-center bg-green-800/30 group-hover:bg-green-800/45 transition-all">
+            <div class="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="p-5">
+          <span class="text-xs font-bold text-green-600 uppercase tracking-widest">Naver Blog</span>
+          <h3 class="font-bold text-navy mt-1 text-base">이동식 랙 도입 가이드</h3>
+          <p class="text-slate-500 text-sm mt-1">설치 사례와 비용 분석을 블로그에서 상세히 읽어보세요</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     A/S 및 사후관리 보증 배지
+     ============================== -->
+<section class="section section-light">
+  <div class="container">
+    <div class="text-center mb-10 fade-up">
+      <p class="text-orange-500 font-bold text-sm uppercase tracking-widest mb-2">After-Sales Guarantee</p>
+      <h2 class="section-title">설치 이후도 랙코리아가<br class="md:hidden"/> 책임집니다</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- 배지 1 -->
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="p-6 text-center" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+          <div class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mx-auto mb-3 text-3xl">🚨</div>
+          <p class="text-orange-400 font-black text-2xl mb-0.5">24시간 이내</p>
+          <p class="text-white font-bold text-sm">긴급 출동 보장</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-slate-500 text-sm leading-relaxed">전국 서비스 네트워크를 통해 고장 신고 접수 후 <strong class="text-navy">24시간 이내 현장 출동</strong>을 보장합니다. 물류 다운타임을 최소화합니다.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-200">
+            <span>✓</span> 전국 출동 가능
+          </div>
+        </div>
+      </div>
+
+      <!-- 배지 2 -->
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="p-6 text-center" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+          <div class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mx-auto mb-3 text-3xl">🛡️</div>
+          <p class="text-orange-400 font-black text-2xl mb-0.5">핵심 부품</p>
+          <p class="text-white font-bold text-sm">무상 보증 제공</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-slate-500 text-sm leading-relaxed">구동 모터·컨트롤러 등 <strong class="text-navy">핵심 부품의 무상 보증</strong>을 제공합니다. 품질에 대한 자신감으로 보증 기간을 운영합니다.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-orange-50 text-orange-700 text-xs font-bold px-3 py-1.5 rounded-full border border-orange-200">
+            <span>✓</span> 국내산 핵심 부품
+          </div>
+        </div>
+      </div>
+
+      <!-- 배지 3 -->
+      <div class="rk-card fade-up overflow-hidden" style="box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+        <div class="p-6 text-center" style="background:linear-gradient(135deg,#0f172a,#1e3a5f);">
+          <div class="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center mx-auto mb-3 text-3xl">🔍</div>
+          <p class="text-orange-400 font-black text-2xl mb-0.5">정기 사전</p>
+          <p class="text-white font-bold text-sm">점검 서비스</p>
+        </div>
+        <div class="p-5 text-center">
+          <p class="text-slate-500 text-sm leading-relaxed">연간 정기 점검을 통해 <strong class="text-navy">고장 전 선제 대응</strong>합니다. 모터·레일·센서 등 전 항목 체크리스트 점검 후 리포트를 제공합니다.</p>
+          <div class="mt-4 inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full border border-blue-200">
+            <span>✓</span> 점검 리포트 제공
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CTA 배너
+     ============================== -->
+<section class="py-20" style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);">
+  <div class="container text-center text-white fade-up">
+    <h2 class="text-3xl font-black mb-4">지금 바로 창고 효율을 높이세요</h2>
+    <p class="text-white/70 mb-8">전문 컨설턴트가 현장에 맞는 최적 솔루션을 제안해 드립니다</p>
+    <a href="contact.html" class="btn-cta inline-block" style="font-size:1.05rem; padding:0.85rem 2.5rem;">무료 견적 문의하기 →</a>
+  </div>
+</section>
+
+<!-- ==============================
+     푸터
+     [CUSTOMIZE] 회사 정보 수정
+     ============================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="footer-logo">RACK KOREA</div>
+        <p class="footer-info">
+          이동식 랙 전문 제조·설치 기업<br/>
+          B2B 물류·창고 솔루션
+        </p>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">바로가기</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-orange-400 transition-colors">제품 소개</a></li>
+          <li><a href="portfolio.html" class="hover:text-orange-400 transition-colors">설치 사례</a></li>
+          <li><a href="contact.html" class="hover:text-orange-400 transition-colors">문의하기</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-white font-bold mb-3">연락처</p>
+        <!-- [CUSTOMIZE] 실제 연락처 정보 입력 -->
+        <p class="footer-info">
+          Tel: 031-351-3985<br/>
+          Email: master@rackkorea.co.kr<br/>
+          경기도 화성시 만세구 장안면 신촌길 60-19
+        </p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 랙코리아(Rack Korea). All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── 네비 스크롤 효과 ──
+const gnb = document.getElementById('gnb');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    gnb.classList.remove('transparent');
+    gnb.classList.add('scrolled');
+  } else {
+    gnb.classList.remove('scrolled');
+    gnb.classList.add('transparent');
+  }
+});
+
+// ── 모바일 메뉴 ──
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+// ── 언어 토글 ──
+let isKR = true;
+function toggleLang() {
+  isKR = !isKR;
+  document.getElementById('lang-label').textContent = isKR ? 'KR' : 'EN';
+  // [CUSTOMIZE] 실제 다국어 구현 시 이곳에서 텍스트 교체 로직 추가
+}
+
+// ── Hero 슬라이더 ──
+const heroSlides = document.querySelectorAll('.hero-slide');
+const heroDots   = document.querySelectorAll('.hero-dot');
+let heroIdx = 0, heroTimer;
+
+function goSlide(n) {
+  heroSlides[heroIdx].classList.remove('active');
+  heroDots[heroIdx].classList.remove('active');
+  heroIdx = n;
+  heroSlides[heroIdx].classList.add('active');
+  heroDots[heroIdx].classList.add('active');
+}
+function nextHero() { goSlide((heroIdx + 1) % heroSlides.length); }
+heroTimer = setInterval(nextHero, 5000);
+
+// ── Space Slider (hover 멈춤) ──
+const spaceEl = document.getElementById('space-slider');
+const spaceSlides = document.querySelectorAll('.space-slide');
+const spaceDots   = document.querySelectorAll('.space-dot');
+let spaceIdx = 0, spaceTimer;
+
+function goSpaceSlide(n) {
+  spaceSlides[spaceIdx].style.display = 'none';
+  spaceDots[spaceIdx].classList.remove('bg-orange-500');
+  spaceDots[spaceIdx].classList.add('bg-white/50');
+  spaceIdx = n;
+  spaceSlides[spaceIdx].style.display = 'block';
+  spaceDots[spaceIdx].classList.add('bg-orange-500');
+  spaceDots[spaceIdx].classList.remove('bg-white/50');
+}
+function nextSpace() { goSpaceSlide((spaceIdx + 1) % spaceSlides.length); }
+spaceTimer = setInterval(nextSpace, 3500);
+spaceEl.addEventListener('mouseenter', () => clearInterval(spaceTimer));
+spaceEl.addEventListener('mouseleave', () => { spaceTimer = setInterval(nextSpace, 3500); });
+
+// ── Scroll Fade-up 애니메이션 ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
